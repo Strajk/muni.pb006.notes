@@ -1,0 +1,85 @@
+section#pamet
+  header.page-header: h1 Správa paměti
+
+  h3 Paměťové třídy dat
+  p.note V prostředí souběžného zpracování procesů je rozlišení dat na persistentní a transientní relativní.
+
+  div.row
+    article.span5
+      h4 Persistentní data
+      p existují nezávisle na výpočtu, jsou spravována souborovým podsystémem operačního systému. Obvykle jsou umístěna na vnějších pamět’ových médiích (soubory, databáze).
+
+    article.span5
+      h4 Transientní data
+      p existují pouze po dobu výpočtu. Jsou obvykle umístěna v dostupné (procesem adresovatelné) části operační paměti (hodnoty proměnných, parametrů, obsahy přepisovatelných proměnných, ...), ale i vně (dočasné soubory, data na portech, ...).
+
+      h5 Statická
+      p prováděná překladačem (statická data, třída static, own).
+      p [instrukce programu, systémová data,statická data, vyrovnávací paměti, ...]
+
+      h5 Automatická (zásobníková)
+      p v době výpočtu při zahájení/ukončení aktivace procedury, bloku, aplikace funkce na argumenty (automatická data, třída auto).
+      p [lokální data v blocích, parametry funkcí a procedur, pomocné datové struktury ve funkcích, návratové adresy, . . . ]
+
+      h5 Dynamická (haldová)
+      p v době výpočtu, prováděná speciálními procedurami pro alokaci, dealokaci, přesouvání, scelování, . . . (dynamická data, třída dynamic).
+      ul
+        li řízená explicitně programem [malloc, free, new, dispose, mark, release]
+        li spouštěná výhradně „run-time podporou“ výpočtu [garbage collecting, setřásání]
+
+
+  hr
+  h3 Fáze správy paměti
+  ul
+    li alokace (přidělení)
+    li dealokace (uvolnění)
+    li obnovení volné paměti může vyžadovat gc
+    li scelování – změna polohy obsazených a volných bloků
+      ul
+        li Částečné
+        li Úplné
+      
+  div.row
+    article.span5
+      h4 Scelování (spojování sousedních volných bloků)
+      p je snazší, pokud se seznam volných bloků udržuje uspořádaný podle adres
+      p: img(src='img/screenshots/ishot-28.png')
+
+    article.span5
+      h4 Setřásání (úplné scelování)
+      p způsobí změny ukazatelů
+      p: img(src='img/screenshots/ishot-29.png')
+
+  hr
+  h3 Problémy 
+  ul
+    li smetí (» garbage collector)
+    li slepé odkazy
+    li fragmentace (» částečné scelování)
+  
+  h3 Správa dynamické paměti
+  div.row
+    article.span5
+      header: h4 Inicializace
+      p vytvoření seznamu volných bloků, seznamu mimohaldových ukazatelů
+      p: img(src='img/screenshots/ishot-24.png')
+
+    article.span5
+      header: h4 Alokace bloku požadované velikosti
+      p: img(src='img/screenshots/ishot-25.png')
+
+    article.span5
+      header: h4 Uvolnění bloku
+      p nekorektní – vznik slepého odkazu
+      p: img(src='img/screenshots/ishot-26.png')
+
+      p nekorektní – vznik smetí
+      p: img(src='img/screenshots/ishot-27.png')
+
+  hr
+  h3 Úklid smetí (garbage collection)
+  p každý alokovaný blok má příznak dostupnosti (1 bit)
+  p všechny příznaky dostupnosti se nastaví na „nedostupné“
+  p postupuje se od známých ukazatelů a všechny navštívené bloky se označí „dostupné“ (při návštěvě bloku již označeného za „dostupný“ se hlouběji nepokračuje)
+  p nakonec se všechny nedostupné bloky zařadí do seznamu volných
+

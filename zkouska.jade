@@ -1,0 +1,60 @@
+section#zkouska
+  header.page-header: h1 Zkouška
+  
+  dl
+    dt Teorie: Frázová syntax se používá na definování komentářů.
+    dd NE, frázová syntax popisuje úplnou strukturu programu (tvoří množinu správně vytvořených vět)
+    
+    dt Teorie: Mějme a : A, podle pravidla subsumpce je a i typem všech PODtypů A?
+    dd: img(src='img/screenshots/ishot-83.png')
+
+    dt Scheme je logický jazyk.
+      dd NE, Scheme je funkcionální, netypovaný jazyk se statickou viditelností a striktní vyhodnocováním.
+    
+    dt Automatická data jsou ukládána na zásobníku.
+    dd ANO, Automatická data jsou typem transientních dat (exitují jen po dobu výpočtu), které jsou uložena v zásobníku.
+    
+  dl
+    dt Máme funkci g, která je typu g : A x B -> A; a g : A x B -> B. Dále někde v kódu máme výraz g(g(x,y),g(u,z)), co platí?
+    dd Nerozhodnutelné v jakémkoliv kontextu.
+    dd Kontextově nezávislé přetížení...
+    dd Kontextově závislé přetížení a v tomto případě LZE rozhodnout. [řešení]
+    dd Kontextově závisle přetížení a v tomto případě NElze rozhodnout.
+    
+  dl
+    dt
+      | Do globalnej premmenej "a" (typu int) je na pociatku vlozena hodnota "n". Dalej mame nasledujucu funkciu/proceduru P:
+      | <pre>
+      |  P(ref int x, inout int y) {
+      |    while (x>0) {
+      |      x = x-1;
+      |      y = x + y;
+      |    }
+      |  }
+      | </pre>
+      | Ta je zavolana nasledovne: P(a,a);  Aka hodnota bude v premmenej "a" po skonecni procedury?
+    dd n
+    dd (n*(n+1))/2 [řešení]
+    dd 0
+    dd 2^n, nebo tak neco
+    dd jina
+    
+  dl
+    dt.
+      UnitT -> TriT, kolko je spojitych funkcii a kolko z nich je maximalnych?
+      UnitT je klasicky 2 prvkovy ("()" a "T"), TriT je typ zadefinovany ako obsahujuci nedefinitko
+      a potom dalsie 3 prvky A,B,C, ktore su v TriT maximalne (t.j. A,B,C su navzajom neporovnatelne, 
+      ale ktorykolvek z nich je vacsi ako T)). Dohromady teda TriT obsahuje 4 prvky.
+    dd ...
+    dd 7 funkcii, 3 maximalne [řešení]
+    dd ...
+    
+  dl
+    dt.
+      Příklad v prologu. Máme zadánu pomocnou funkci Add(m, n, p), definovanou (aspoň doufám):
+      <pre>
+        Add(Zero, n, n).
+        Add(Succ(m), n, Succ(p)) :- Add(m, n, p).
+      </pre>
+      Definujte funkci Mul(m,n,p), která vrátí yes, pokud je p součinem m a n.
+    dd (Prostě p=m*n).

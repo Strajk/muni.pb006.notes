@@ -1,0 +1,76 @@
+section#viditelnost
+  header.page-header: h1 Viditelnost
+
+  h2 Viditelnost jazykových entit
+  p.note Jazyková entita = cokoliv, co může být pojmenované
+
+  h3 Statická (Lexikální)
+
+  p Nejčastější
+  p Pro každou definici jazykové entity (konstanty, proměnné, typu, ...)je tzv. statickou sémantikou určena oblast platnosti definice.
+  section.row
+    article.span4
+      header: h4 Blokové jazyky
+      p eg. Pascal, Modula, Algol68
+      p Stromová struktura - implicitně, viditelné vše od rodičů.
+      p Globální a lokální entity
+      p: img(src='img/screenshots/ishot-18.png')
+      p V potomcích můžeme deklarací proměnné překrýt tu rodičovskou
+      p: img(src='img/screenshots/ishot-19.png')
+
+    article.span4
+      header: h4 Modulární jazyky
+      p eg. C, Modula
+      p Moduly se vzájemně nevnořují, ale mohou být tvořeny blokem.
+      p Třídy viditelnosti: public / private.
+      p: img(src='img/screenshots/ishot-20.png')
+      p <code>use A, B(t)</code> – M používá všechny proměnné z A, pouze proměnnou t z B
+      p: img(src='img/screenshots/ishot-22.png')
+    article.span4
+      header: h4 Objektové jazyky
+      p Java
+      p z hlediska viditelnosti podobné modulárním, rozlišují třídy a objekty.
+      h5 Objekt
+      p je modul se skrytými (privátními) přepisovatelnými proměnnými (tzv. atributy) a s veřejnými operacemi (tzv. metodami) nad těmito proměnnými.
+      h5 Třída
+      p („generický objekt“) popisuje typ objektu.
+      p Vlastní objekty se nazývaji instance třídy a vytvářejí se zvlášt’:
+      ul
+        li Deklarací - statické objekty
+        li Příkazem - dynamické objekty
+      p Definice třídou exportovaných atributů a metod je součástí
+      ul
+        li definice třídy – statické metody, případně atributy
+        li deklarace instance – atributy (někdy i metody)
+      h5 Dědičnost
+      p mezi třídami je zavedena relace podtříd
+      p: img(src='img/screenshots/ishot-23.png')
+    
+      h5 Vlastnosti OO jazyků
+      ul
+        li Třídy a objekty (statické nebo dynamické).
+        li Dědičnost a inkluzní polymorfismus
+        li Viditelnost omezená na objekty a řízená pomocí public / private (příp. protected).
+        li V (dynamických) objektech mohou být atributy i metody statické / dynamické
+
+      h5 Příklady
+      ul
+        li Simula67 považována za nejstarší jazyk, vněmž se poprvé objevily některé principy OO programování
+        li Smalltalk první čistě objektový OO jazyk; netypovaný
+        li Eiffel čistě objektový, typovaný
+        li C++ původně jen rozšíření C pomocí makrojazyka cpp, není čistě objektové
+        li Java spolu s C++ nejrozšířenější, není čistě objektová (má i primitivní typy, které nejsou třídami), ale má čistší design než C++
+        li Python, Ruby interpretovaný bytový kód
+        li Ada staticky typovaná, vznikla na zakázku MO USA na konci 70. let; pojmenovaná po Lady Lovelace
+        li OCaML objektová verze funkcionálního jazyka ML
+
+    
+    article.span4
+      header: h4 Amorfní jazyky
+      p Toy Languages
+      p Nepoužitelné pro „programování ve velkém“.
+    
+  h3 Dynamická
+  p Viditelnost jazykových entit závisí na momentálně aktivních programových jednotkách (blocích, funkcích, procedurách, ...) v době běhu.
+  p Téměř nepoužívaná (Lisp, Snobol, APL).
+  p: img(src='img/screenshots/ishot-21.png', width=500)

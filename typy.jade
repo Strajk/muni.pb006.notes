@@ -1,0 +1,181 @@
+section#typy
+  header.page-header: h1 Typy
+
+  p Každá proměnná, konstanta nebo složený výraz může nabývat jen jistých hodnot a lze s nimi provádět pouze jisté operace. ~ <strong>typ výrazu</strong> = typ nám označuje, jakých hodnot může výraz nabývat a jaké operace na něj mohou být aplikovány.
+
+  h3 Pojetí typů
+  ul
+    li množiny hodnot
+    li heterogenní algebry (množiny hodnot spolu s operacemi na nich) (algebraické typy)
+    li variety heterogenních algeber (množiny s operacemi a axiomy) (ADT)
+  
+  div.example
+    header
+      h4 Typ zásobník nad celými čísly
+    p: img(src='img/screenshots/zasobnik nad celymi daty.png', width=400)
+    p: img(src='img/screenshots/zasobnik nad celymi daty 2.png', width=400)
+    p: img(src='img/screenshots/zasobnik nad celymi daty 3.png', width=400)
+    
+
+  h2 Klasifikace podle úrovně, na které vznikají
+  h4 <span class="badge badge-inverse">A</span> Úroveň stroje
+  p tyto typy jsou přímo podporované strojem. Bývají to zejména typy Char (Byte), Integer a Real.
+  h4 <span class="badge badge-inverse">B</span> Úroveň jazyka
+  p tyto typy nejsou definované strojem, ale jsou simulovány programovacím jazykem. Algoritmy operací nad těmito typy nejsou integrovány v elektronických obvodech stroje, ale jsou součástí programovacího jazyka. Patří sem často typy jako Boolean, Array nebo Record.
+  h4 <span class="badge badge-inverse">C</span> Úroveň programátora
+  p tyto typy si v daném programovacím jazyku definuje sám programátor. Můžeme sem řadit například typ List nebo Tree, ale i jednoduchý typ jako je Enum.
+
+  hr 
+  h2 Klasifikace podle datové struktury
+  section.toc.row
+    div.span5
+      h4 <span class="badge badge-inverse">A</span> Základní (primitivní, atomické)
+      ul
+        li Logické hodnoty <span class="label">skalární</span> <code>Boolean</code>
+        li Znaky (krátké, dlouhé) <span class="label">skalární</span> <code>Char</code>
+        li Čísla (celá, desetinná) <span class="label">skalární</span> <code>Integer, Real</code>
+        li Adresy <span class="label">skalární</span> 
+    div.span5
+      h4 <span class="badge badge-inverse">B</span> Složené
+      p Vznikly spojením několika jednoduchých datových typů. Každý strukturovaný datový typ musí definovat operaci selekce (tzv. selektor) pomocí něhož je možno přistupovat k jednotlivým položkám datového typu.
+      ul
+        li <span class="badge badge-inverse">B1</span>Kartézský součin <span class="label">součinové</span>
+        li <span class="badge badge-inverse">B2</span>Disjunktní sjednocení <span class="label">součtové</span>
+        li <span class="badge badge-inverse">B3</span>Zobrazení (pole, funkce) <span class="label">mocniné</span>
+  
+  hr
+
+  h4 <span class="badge badge-inverse">B1</span> Kartézský součin
+  p
+    img(src='img/screenshots/kartezsky soucin.png', width=500)
+
+  h4 <span class="badge badge-inverse">Bx</span> Agregáty
+  p
+    img(src='img/screenshots/agregaty.png', width=500)
+    img(src='img/screenshots/agregaty 2.png', width=500)
+  
+  h4 <span class="badge badge-inverse">B2</span> Disjunktní sjednocení
+  p: img(src='img/screenshots/disjunktni sjednoceni.png', width=500)
+
+  h4 <span class="badge badge-inverse">Bx</span> Uniony
+  p: img(src='img/screenshots/uniony.png', width=500)
+  
+  p 
+    img(src='img/screenshots/obecne vlastnosti.png', width=500)
+    img(src='img/screenshots/obecne vlastnosti 2.png', width=500)
+  
+  h4 <span class="badge badge-inverse">B3</span> Pole
+   p
+     img(src='img/screenshots/pole.png', width=500)
+     img(src='img/screenshots/pole vicerozmerna.png', width=500)
+   
+  h4 <span class="badge badge-inverse">B3</span> Funkce
+    p
+      img(src='img/screenshots/funkce.png', width=500)
+    
+  h4 Potenční množiny
+    p 
+      img(src='img/screenshots/potencni mnoziny.png', width=500)
+    
+  h4 Prázdný typ
+  p: img(src='img/screenshots/prazdny typ.png', width=500)
+  
+  h4 Jednotkový typ
+  p: img(src='img/screenshots/jednotkovy typ.png', width=500)
+
+  h4 Výčtové typy
+  p: img(src='img/screenshots/vyctove typy.png', width=500)
+
+
+  h4 Rekursivní (induktivní) typy
+  img(src='img/screenshots/rekurzivni typy.png', width=500)
+  img(src='img/screenshots/rekurzivni typy priklad.png', width=500)
+  img(src='img/screenshots/rekurzivni typy priklad 2.png', width=500)
+
+  h4 Korekursivní (koinduktivní) typy
+  img(src='img/screenshots/korekurzivni typy.png', width=500)
+  img(src='img/screenshots/korekurzivni typy priklad.png', width=500)
+
+
+  h3 Genericita <span class="label">Zaradit</span>
+  p Programovací jazyk podporuje genericitu, pokud umožňuje parametrizovat datové typy.
+  p Parametrizované datové typy se nazývají generické datové typy.
+  p <code>Data = array [0 .. 4] of Real</code>
+  p O skutečné genericitě však většinou hovoříme až tehdy, umožňuje-li jazyk parametrizovat programátorem vytvořené datové typy.
+  p lze uvažovat pouze v systémech s mani- festovanými typy. Systémy s implicitními dynamickými typy jsou generické už svojí povahou
+
+  h3 Monomorfismus a polymorfismus
+  h4 Monomorfismus
+  p monomorfní typy jsou bud’ základní typy, anebo jsou (pomocí typových konstruktorů) složené z monomorfních typů.
+
+  h4 Polymorfismus
+  p polymorfní typy zastupují celou množinu monomorfních typů.
+  p Funkci nazveme polymorfní, pokud pracuje stejným způsobem nad různými typy.
+  p.note problém řešený polymorfními funkcemi není principiálně řešitelný přetížením. Polymorfní funkce pracuje uniformně s li- bovolným typem - a tedy potenciálně s nekonečně mnoha typy.
+
+  .row
+    .span5
+      h4 Parametrický polymorfismus
+      p v typových výrazech se vyskytují typové proměnné, za něž lze dosadit libovolný typ.
+      img(src='img/screenshots/parametricky polymorfismus.png')
+      img(src='img/screenshots/parametricky polymorfismus 2.png')
+      img(src='img/screenshots/parametricky polymorfismus 3.png')
+      img(src='img/screenshots/parametricky polymorfismus 4.png')
+    
+      h5 Kovariance a kontravariance
+      p
+        img(src='img/screenshots/kovariance.png')
+        img(src='img/screenshots/kovariance 2.png')
+        img(src='img/screenshots/kovariance 3.png')
+        img(src='img/screenshots/kovariance 4.png')
+      p Využití: zejména v typovaných systémech pro objektoveˇ orientované jazyky.
+      p Nevýhoda: nerozhodnutelnost otypování » nutné dynamické typové kontroly.
+    
+    .span5
+      h4 Podtypový (inklusní) polymorfismus
+      p
+        | typovém systému se zavede mezi typy relace
+        img(src='img/screenshots/inline char.png')
+        | a každá hodnota má kromě svého nejmenšího typu i všechny jeho nadtypy.
+      p
+        img(src='img/screenshots/podtypovy.png')
+        img(src='img/screenshots/podtypovy priklad.png')
+      
+
+  h4 Přetížení
+  p Identifikátor funkce nazveme přetížený (overloaded), pokud reprezentuje více než jednu funkci. Nečiníme zde přitom rozdílu mezi funkcí a operáto- rem, tj. může mít přetížený jak identifikátor funkce, tak operátor.
+
+  .row
+    .span5
+      h5 kontextově závislé přetížení
+      p funkce specifikované přetíženým iden- tifikátorem lze rozlišit pouze pomocí návratové hodnoty funkce
+      p: img(src='img/screenshots/ishot-82.png', width=500)
+
+    .span5
+      h5 kontextově nezávislé přetížení
+      p funkce specifikované přetíženým identifikátorem lze rozlišit pomocí počtu nebo typu parametrů
+
+  img(src='img/screenshots/pretizeni.png', width=500)
+  img(src='img/screenshots/pretizeni 2.png', width=500)
+  img(src='img/screenshots/pretizeni priklad.png', width=500)
+  
+  
+  h4 Přetypování (type cast)
+  p Přetypování je explicitní změna typu výrazu, při současném přibližném zachování jeho hodnoty. Pomocí transformačních funkcí.
+
+  h4 Koerce (coertion)
+  p Implicitní přetypování <code>3.14 + 7</code> na <code>3.14 + Real(7)</code>
+  p
+    img(src='img/screenshots/koerce.png', width=500)
+  
+  h4 Druhy
+  p Typy v programovacích jazycích slouží ke klasifikaci hodnot. U jazyků s bohatšími typovými systémy druhy slouží ke klasifikaci typů, typových konstruktorů, typových funkcí apod.
+  p: img(src='img/screenshots/druhy.png', width=350)
+
+  h4 Hodnotově závislé typy
+  p Bohatší typové systémy mohou pracovat s typy závislými na hodnotách. Typové konstruktory mohou být parametrizovány nejen typy, ale i hodnotami.
+  p: img(src='img/screenshots/hodnotove zavisle - priklad.png', width=500)
+  p: img(src='img/screenshots/hodnotove zavisle - priklad 2.png', width=500)
+  p: img(src='img/screenshots/hodnotove zavisle - summary.png', width=500)
+
+    

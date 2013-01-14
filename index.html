@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Principy program</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/jquery-1.8.3.min.js"></script>
+    <script src="js/vendor/bootstrap.js"></script>
+    <script>
+      $(function() {
+        // $('#sidebar').scrollspy();
+      });
+    </script>
+  </head>
+  <body>
+    <div class="jumbotron masthead">
+      <div class="container">
+        <h1>PB006</h1>
+        <p>Ultimate guide to PB006</p>
+        <ul class="masthead-links">
+          <li><a href="http://www.fi.muni.cz/~libor/vyuka/PB006/">Oficiální stránky předmětu</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="span2">
+          <ul id="sidebar" data-spy="affix" data-offset-top="290" class="nav nav-list">
+            <li><a href="#about">O projektu</a></li>
+            <li><a href="#uvod">Úvod</a></li>
+            <li><a href="#jazyky">Jazyky </a></li>
+            <li><a href="#historie">Historie </a></li>
+            <li><a href="#klasifikace">Klasifikace </a></li>
+            <li><a href="#syntax">Syntax </a></li>
+            <li><a href="#semantika">Sémantika</a></li>
+            <li><a href="#typy">Typy </a></li>
+            <li><a href="#vyrazy">Výrazy</a></li>
+            <li><a href="#pamet">Pamět</a></li>
+            <li><a href="#logicke">Logické</a></li>
+            <li><a href="#funkcionalni">Funkcionální</a></li>
+            <li><a href="#soubeznost">Souběžnost</a></li>
+            <li><a href="#viditelnost">Viditelnost </a></li>
+            <li><a href="#zkouska">Zkouška</a></li>
+          </ul>
+        </div>
+        <div class="span10">
+          <section id="about">
+            <header class="page-header">
+              <h1>O projektu</h1>
+            </header>
+            <h3>Zdroje informací</h3>
+            <ul class="resources">
+              <li><strong>Zápisky z přednášek</strong>, Libor Škarvada, Václav Brožek</li>
+              <li><strong>Úvod do paradigmat programování</strong>, 1994, Univerzita Palackého v Olomouci Katedra Informatiky, David Skoupil</li>
+              <li><strong>Úvod do paradigmat programování</strong>, 2007, Univerzita Palackého v Olomouci Katedra Informatiky, David Skoupil</li>
+              <li><strong>PB006-pb006-zkouska-predtermin-18-12-201</strong>, 26.12.2012, fi.muny.cz</li>
+              <li><strong>PB006-pb006-vypisky-ze-slidu.pdf</strong>, 26.12.2012, fi.muny.cz</li>
+              <li><strong>prehled_jazyku.doc</strong>, fi.muny.cz</li>
+            </ul>
+            <h3>Disclaimer</h3>
+            <p>Nic na tomto webu o sobě netvrdí, že je to pravda.</p>
+          </section>
+          <section id="uvod">
+            <header class="page-header">
+              <h1>Úvod</h1>
+            </header>
+            <section id="uvod_kvalita">
+              <header>
+                <h3>Kvalita</h3>
+              </header>
+              <blockquote>
+                <p>Testováním lze dosáhnout korektnosti programu pouze tehdy, pokud se zaměříme na jeho vnitřní strukturu.</p><small>E. W. Dijkstra</small>
+              </blockquote>
+              <h4>Vnější faktory kvality programu</h4>
+              <ul>
+                <li><strong>Správnost</strong> - chopnost programů přesně vykonávat svou úlohu tak, jak je definována v požadavcích zadavatele.</li>
+                <li><strong>Robustnost</strong> - schopnost programů fungovat i v abnormálních podmínkách. Princip <strong>graceful degradation</strong></li>
+                <li><strong>Rozšiřitelnost</strong> - snadné přizpůsobení novým podmínkám</li>
+                <li><strong>Rychlost</strong></li>
+                <li><strong>Efektivnost</strong></li>
+                <li><strong>Kompatibilita</strong></li>
+                <li><strong>Univerzálnost</strong></li>
+              </ul>
+            </section>
+          </section>
+          <section id="jazyky">
+            <header class="page-header">
+              <h1>Přehled jazyků</h1>
+            </header>
+            <section class="row">
+              <article class="span5">
+                <h4>Pascal</h4>
+                <p>Pascal je ve své původní formě čistým procedurálním, imperativním jazykem, obsahující skupinu řídicích konstrukcí jako je for, while, if, then, else, převzaté z ALGOLu.</p>
+                <p>Dovoluje kontextově nezávislé přetížení.</p>
+                <p>Blokový (v jeho čisté formě), modulární jazyk.</p>
+              </article>
+              <article class="span5">
+                <h4>Fortran (FORmula TRANslation)</h4>
+                <p>Jazyk pro překlad matematických výrazů</p>
+                <p>Před interpretací procesorem musel být nejprve přeložen</p>
+              </article>
+              <article class="span5">
+                <h4>Haskell</h4>
+                <p>Haskell je standardizovaný funkcionální, modulární programovací jazyk používající líné vyhodnocování. Jazyk se rychle vyvíjí, především díky svým implementacím Hugs a GHC.</p>
+                <p>Dodržuje referenční transparentnost, přísné typování proměnný.</p>
+                <p>Je parametricky polymorfní.</p>
+                <p>Dovoluje kontextově nezávislé přetížení.</p>
+              </article>
+              <article class="span5">
+                <h4>C++</h4>
+                <p>C++ je objektově orientovaný programovací jazyk, vyvinutý v Bellových laboratořích AT&T rozšířením jazyka C. C++ podporuje několik programovacích stylů (paradigmat) jako je procedurální programování, objektově orientované programování a generické programování, není tedy jazykem čistě objektovým. V současné době patří C++ mezi nejrozšířenější programovací jazyky.</p>
+              </article>
+              <article class="span5">
+                <h4>Prolog</h4>
+                <p>Prolog je logický, netypový programovací jazyk. Patří mezi deklarativní programovací jazyky, ve kterých programátor popisuje pouze cíl výpočtu, přičemž přesný postup, jakým se k výsledku program dostane, je ponechán na libovůli systému. Prolog se snaží o pokud možno abstraktní vyjádření faktů a logických vztahů mezi nimi s potlačením imperativní složky. Prolog je založen na predikátové logice prvního řádu. Základními využívanými přístupy jsou unifikace, rekurze a backtracking.</p>
+                <p>Jde o nejvíce rozšířený logický jazyk.</p>
+                <p>Má plochou strukturu a viditelnost, tzn. že všechny predikáty jsou globální a všechny proměnné jsou lokální (v klauzuli).</p>
+              </article>
+              <article class="span5">
+                <h4>Eiffel</h4>
+                <p>Eiffel je čistě objektově orientovaný programovací jazyk. Je to jazyk typovaný.</p>
+              </article>
+              <article class="span5">
+                <h4>Mercury</h4>
+                <p>Merkury je multiparadigmatický – logicky funkcionální jazyk. Má parametrický polymorfismus.</p>
+              </article>
+              <article class="span5">
+                <h4>Scheme</h4>
+                <p>Scheme je multiparadigmatický programovací jazyk. Scheme je jeden ze dvou hlavních dialektů funkcionálního programovacího jazyka Lisp.</p>
+                <p>Je netypovaný.</p>
+                <p>Oproti Lispu se Scheme snaží o minimalismus - poskytovat co nejmenší počet základních funkcí, na nichž jsou pak v knihovnách postaveny složitější konstrukce. Díky tomu má dosud poslední reference jazyka jen 50 stran.</p>
+                <p>Nejznámější implementací je grafický editor GIMP, jehož dodatečné zásuvné moduly a skripty jsou psány v dialektu jazyka Scheme.</p>
+                <p>Má striktní vyhodnocování a statickou viditelnost.</p>
+              </article>
+              <article class="span5">
+                <h4>Gödel</h4>
+                <p>Gödel je v deklarativní programovací jazyk, který dodržuje logické programovací paradigma. Jedná se o silně typový jazyk, jehož systém je založen na mnohotříděné logice s parametrickým polymorfismem.</p>
+                <p>Gödel má modulární systém, který podporuje libovolnou přesnost celých čísel, racionálních čísel a čísel s pohyblivou desetinnou čárkou.</p>
+              </article>
+              <article class="span5">
+                <h4>Java</h4>
+                <p>Java je objektově orientovaný programovací jazyk.</p>
+                <p>Je velmi dobře přenositelný (přenositelnost je zajištěna překladem do bytového kódu) a proto je používán pro programy, které mají pracovat na různých systémech. Java bude dále vyvíjena jako open source.</p>
+                <p>Jde o modulární jazyk.</p>
+              </article>
+              <article class="span5">
+                <h4>Erlang</h4>
+                <p>Erlang je funkcionální programovací jazyk. Nyní jako open source.</p>
+                <p>Je dynamicky typovaný jazyk se striktním vyhodnocováním konstrukce pro podporu paralelního vyhodnocování.</p>
+              </article>
+              <article class="span5">
+                <h4>C</h4>
+                <p>C je programovací jazyk, vyvinutý pro potřeby operačního systému Unix. C je nízkoúrovňový, kompilovaný, relativně minimalistický programovací jazyk.</p>
+                <p>Ukládání dat je v C řešeno třemi základními způsoby: statickou alokací paměti (při překladu), automatickou alokací paměti na zásobníku a dynamickou alokací na haldě (heap) pomocí knihovních funkcí. Existují zde ukazatele nezávisle na proměnných, na které odkazují, a je na odpovědnosti programátora, aby neukazovaly na paměť nealokovanou.</p>
+                <p>Jde o jazyk modulární a imperativní.</p>
+              </article>
+              <article class="span5">
+                <h4>ML</h4>
+                <p>ML je funkcionální, typovaný jazyk se striktním vyhodnocováním.</p>
+                <p>Má parametrický polymorfismus.</p>
+              </article>
+              <article class="span5">
+                <h4>Smalltalk</h4>
+                <p>Smalltalk je interpretovaný, dynamicky a striktně typovaný (ve skriptech je ale uvedeno, že je netypovaný), čistě objektový programovací jazyk – prototyp.</p>
+              </article>
+              <article class="span5">
+                <h4>LISP</h4>
+                <p>LISP je funkcionální – ne ale čistě, programovací jazyk. Stále se používá v oboru umělá inteligence. Používá ho také například textový editor Emacs či konstrukční program AutoCAD.</p>
+                <p>Původně navrhnut jako programovací jazyk pro matematické výpočty a byl silně ovlivněn syntaxí Lambda kalkulu. </p>
+                <p>Lisp nevnímá rozdíl mezi kódem a daty, díky čemuž má jednoduchou syntaxi. Celý program je tak složen z s-výrazů nebo ozávorkovaných seznamů ve tvaru (f a b c), kde na prvním místě je operátor/funkce a na dalších argumenty funkce. Všechny další funkce jazyka mají identickou syntaxi.</p>
+                <p>Z Lispu jsou odvozeny i další jazyky - například Tcl, Smalltalk nebo Scheme.</p>
+                <p>Používá dynamickou viditelnost.</p>
+              </article>
+              <article class="span5">
+                <h4>Cobol</h4>
+                <p>Jazyk Cobol byl vyvinut společným úsilím výrobců a uživatelů počítačů ve spolupráci s ministerstvem obrany USA.</p>
+                <p>Zápis jazyka je blízký angličtině.</p>
+                <p>Jde o imperativní jazyk.</p>
+              </article>
+              <article class="span5">
+                <h4>Ruby</h4>
+                <p>Ruby je interpretovaný skriptovací programovací jazyk.</p>
+                <p>Bytový kód.</p>
+                <p>Je plně objektově orientovaný  vše v Ruby je objekt.</p>
+              </article>
+            </section>
+          </section>
+          <section id="historie">
+            <div class="page-header">
+              <h1>Historie</h1>
+            </div><img src="img/1/historie.png">
+          </section>
+          <section id="klasifikace">
+            <header class="page-header">
+              <h1>Klasifikace</h1>
+            </header>
+            <h3>Aspekty programovacího jazyka</h3>
+            <ul>
+              <li>Vztah k výpočtu</li>
+              <li>Implementace kompilátoru, interpretu</li>
+              <li>Použitelnost jazyka</li>
+              <li>Oblast nasazení</li>
+              <li>Úspěšnost jazyka</li>
+            </ul>
+            <h3>Klasifikace programovacích paradigmat</h3>
+            <p class="note"><strong>Paradigma</strong> = způsob, jak jsou v programovacím jazyku formulována řešení problémů.</p>
+            <section class="row">
+              <article class="span5">
+                <h4>Imperativní (klasické)</h4>
+                <p>Program popsán posloupností příkazů a přesného postupu (algoritmus), jak úlohu řešit.</p>
+                <p>Existence proměnných (a měnění během výpočtu pomocí operace <em>přiřazení</em>)</p>
+                <p>Podobnost kuchyňskému receptu, návod k montáži nábytku</p>
+                <p>ALGOL, Baltik, C, Common Lisp, Fortran, JAVA, PHP, Pascal, QBasic, Visual Basic</p>
+                <p class="note">Pro funkce je přípustné, aby v průběhu svého vykonávání modifikovaly své vnější prostředí. Vypočtená návratová hodnota tedy není to jediné, co po zbude po jedné aktivaci funkce. Vyvoláme-li tako- vouto funkci vícekrát po sobě, můžeme dostat různé výsledky.</p>
+                <h5>Procedurální</h5>
+                <p>TODO</p>
+                <h5>Objektově Orientované</h5>
+                <p>Objekt je definován stavem a chováním. Navzájem si posílají zprávy.</p>
+              </article>
+              <article class="span5">
+                <h4>Deklarativní</h4>
+                <p>Řešení ve formě výčtu vlastností, které by mělo splňovat. Posloupnost operací, které vedou k nalezení výsledku, není uvedena explicitně v programu.</p>
+                <h5>Funkcionální</h5>
+                <p>Výpočet = vyhodnocení matematických (definičních) formulí, zjednodušování až k výsledku – nerozložitelné normální formě.</p>
+                <p>Vycházejí z teorie funkcí - lambda-kalkulu.</p>
+                <p>Funkce nemají žádné vedlejší účinky, tudíž ani nemění stav programu. (neexistují proměnné)</p>
+                <p>Haskell, LISP, Scheme, FP, Miranda</p>
+                <p>Používáno pro AI, počítačovou grafiku, výuku a výzkum.</p>
+                <p class="note">Klasická funkce, typická pro funkcionální programování, je co do cho- vání obdobou funkce matematické. Je-li aktivována, spočte ze seznamu sku- tečných parametrů a dalších proměnných a konstant prostředí výslednou hodnotu a tu vrátí volající funkci. Pro matematickou funkci není přípustné modifikovat jakékoli hodnoty vně funkce. Takovouto funkci můžeme volat libovolně-krát po sobě a dostaneme vždy stejný výsledek.</p>
+                <h5>Logické</h5>
+                <p>Výpočet = formule predikátového počtu.</p>
+                <p>Použití matematické logiky jako prostředku k programování.</p>
+                <p>Prolog</p>
+                <h5>Constraint logic programming</h5>
+                <p>TODO</p>
+              </article>
+            </section>
+            <hr>
+            <h3>Klasifikace podle typu překladače</h3>
+            <p class="note"><strong>Překladač</strong> speciální program s účelem transformovat program z jednoho jazyka do druhého.</p>
+            <div class="row">
+              <div class="span5">
+                <h5>Kompilované</h5>
+                <p>překladače, které přeloží celý kód ze zdrojové formy do jazyku stroje najednou. Překlad celého kódu tedy předchází jeho spuštění.</p>
+              </div>
+              <div class="span5">
+                <h5>Interpretované</h5>
+                <p>překladače, obcházející přímý překlad do jazyka stroje. Zdrojový program je těmito překladači postupně interpretován a cílový program jako celek nevzniká. Překlad tak probíhá vlastně souběžně s během programu. Výhodou tohoto přístupu je, že kód je možno za běhu programu modifikovat. Na druhé straně jsou tyto překladače po- malejší, náročnější na paměť a program není schopen fungovat bez přítomnosti překladače.</p>
+              </div>
+            </div>
+            <hr>
+            <h3>Klasifikace podle determinismu</h3>
+            <div class="row">
+              <div class="span5">
+                <h5>Deterministické</h5>
+                <p>Na stejný vstup (resp. na stejné výchozí podmínky) reaguje vždy stejně (tedy předvídatelně) a v každém jeho kroku je vždy jednoznačně definován i krok následující.</p>
+              </div>
+              <div class="span5">
+                <h5>Nedeterministické (= stochastický)</h5>
+                <p>V některých krocích může volit z několika možností dalších kroků. Nedeterministický algoritmus při stejném vstupu může dávat rozdílné výsledky.</p>
+              </div>
+            </div>
+            <hr>
+            <h3>Klasifikace podle běhu</h3>
+            <div class="row">
+              <div class="span5">
+                <h5>Sekvenční</h5>
+                <p>Série za sebou následujících instrukcí. Tyto instrukce jsou prováděny pomocí CPU jednoho počítače.</p>
+              </div>
+              <div class="span5">
+                <h5>Paralelní</h5>
+                <p>Úlohy mohou běžet současně.</p>
+                <p>Erlang, Scala, Go, Clojure</p>
+              </div>
+            </div>
+            <hr>
+            <h3>Klasifikace podle struktury programu</h3>
+            <div class="row">
+              <div class="span5">
+                <h5>Amorfní</h5>
+                <p>TODO</p>
+              </div>
+              <div class="span5">
+                <h5>Blokové</h5>
+                <p>TODO</p>
+              </div>
+              <div class="span5">
+                <h5>Modulární</h5>
+                <p>TODO</p>
+              </div>
+              <div class="span5">
+                <h5>Objektové</h5>
+                <p>TODO</p>
+              </div>
+            </div>
+            <hr>
+            <h3>Klasifikace podle typového systému</h3>
+            <div class="row">
+              <div class="span5">
+                <h5>Netypované</h5>
+                <p>TODO</p>
+              </div>
+              <div class="span5">
+                <h5>Typované</h5>
+                <p>TODO</p>
+              </div>
+              <div class="span5">
+                <h5>Statické odvození</h5>
+                <p>TODO</p>
+              </div>
+              <div class="span5">
+                <h5>Dynamické odvození</h5>
+                <p>TODO</p>
+              </div>
+              <div class="span5">
+                <h5>Monomorfní</h5>
+                <p>TODO</p>
+              </div>
+              <div class="span5">
+                <h5>Polymorfní</h5>
+                <p>TODO</p>
+              </div>
+            </div>
+            <hr>
+            <h3>Klasifikace podle oblasti nasazení</h3>
+            <div class="row">
+              <div class="span3">
+                <h5>Číselné výpočty</h5>
+                <p>TODO</p>
+              </div>
+              <div class="span3">
+                <h5>Zpracování textů</h5>
+                <p>TODO</p>
+              </div>
+              <div class="span3">
+                <h5>Systémové programování</h5>
+                <p>TODO</p>
+              </div>
+              <div class="span3">
+                <h5>Databáze</h5>
+                <p>TODO</p>
+              </div>
+              <div class="span3">
+                <h5>Simulace</h5>
+                <p>TODO</p>
+              </div>
+              <div class="span3">
+                <h5>Umělá inteligence</h5>
+                <p>TODO</p>
+              </div>
+              <div class="span3">
+                <h5>Grafické rozhraní</h5>
+                <p>TODO</p>
+              </div>
+              <div class="span3">
+                <h5>Web</h5>
+                <p>TODO</p>
+              </div>
+            </div>
+          </section>
+          <section id="syntax">
+            <header class="page-header">
+              <h1>Syntax</h1>
+            </header>
+            <p>Struktura a forma jazyka (programu). Definuje klíčová slova, identifikátory, čísla a další programové entity a určuje způsob, jak je lze kombinovat. Popsána formální gramatikou (lexikální, bezkontextová, kontext. omezení). Bývá obvykle popsána ve více úrovních.</p>
+            <section id="syntax_popis">
+              <header>
+                <h2>Metody popisu syntaxe</h2>
+              </header>
+              <section id="syntax_popis_bnf">
+                <header>
+                  <h3><span class="badge badge-inverse">A</span> Backus-Naurova forma (BNF)</h3>
+                </header>
+                <p>Formální popis syntaxe</p>
+                <article class="note">
+                  <h4>Zopakování gramatik <small>Více v IB102 Automaty a gramatiky</small></h4>
+                  <p><strong>Terminální symboly</strong> - vyskytují se v popisovaných výrazech. <code>. 0 1 2 3 4 5 6 7 8 9</code></p>
+                  <p><strong>Neterminální symboly</strong> - označují proměnné/abstrakce/symbolické konstrukce, které se v popisovaných výrazech nebudou vyskytovat. Slouží pouze k odvozování správných řetězců terminálních symbolů<code>⟨real-number⟩ ⟨digit-sequence⟩ ⟨digit⟩</code></p>
+                </article>
+                <article class="example">
+                  <h5>Reálná čísla</h5>
+                  <p><img src="img/screenshots/ishot-76.png"></p>
+                  <p>
+                    1) Číslice je 0 nebo 1 nebo 2 nebo ... nebo 9. Nic jiného není číslice.<br />
+                    2) Sekvence čísel je číslice nebo číslice následovaná sekvencí číslic. Nic jiného není sekvence čísel.<br />
+                    3) Reálné číslo je sekvence číslic následovaná tečkou a další sekvencí číslic. Nic jiného není reálné číslo.<br />
+                  </p>
+                </article>
+                <article class="example">
+                  <h5>Syntax úplného jména souboru v operačním systému MS-DOS</h5>
+                  <p><img src="img/screenshots/ishot-77.png"></p>
+                </article>
+              </section>
+              <section id="syntax_popis_ebnf">
+                <header>
+                  <h3><span class="badge badge-inverse">B</span> Rozšířená Backus-Naurova forma (<abbr title="Extended Backus-Naur Form">EBNF)</h3>
+                </header>
+                <h5>Rozdíly oproti BNF</h5>
+                <ul>
+                  <li>Odstraňuje používání špičatých závorek pro neterminály. Zavádí při- tom konvenci, že neterminály jsou psány vždy velkými písmeny, termi- nály vždy malými písmeny a v tisku tučně, speciální terminální znaky jako + − | atd., jsou uzavírány do apostrofů, tj. píšeme ‘+’ ‘−’ ‘|’.</li>
+                  <li>Umožňuje používat kulatých závorek pro shromažďování výrazů.</li>
+                  <li>Zavádí symbol složených závorek {expr} pro žádné, jedno nebo více opakování výrazu expr.</li>
+                  <li>Zavádí symbol hranatých závorek [expr] pro nepovinné konstrukce.</li>
+                </ul>
+                <p>Jakýkoli výraz popsaný EBNF lze převést na ekvivalentní výraz v BNF</p>
+                <article class="example">
+                  <h5>Reálná čísla</h5>
+                  <p><img src="img/screenshots/ishot-78.png"></p>
+                </article>
+              </section>
+              <section id="syntax_popis_diagramy">
+                <header>
+                  <h3><span class="badge badge-inverse">C</span> Syntaktické diagramy</h3>
+                </header>
+                <h5>Postup</h5>
+                <ul>
+                  <li>Pro každý neterminál existuje jeden diagram, název neterminálu je uveden v levé části diagramu.</li>
+                  <li>Každé pravidlo BNF s daným neterminálem na levé straně generuje jednu cestu v diagramu</li>
+                  <li>Terminály jsou psány v kroužcích, neterminály ve čtverečcích</li>
+                  <li>Možnost opakování je v diagramu znázorněna smyčkou</li>
+                </ul>
+                <div class="row">
+                  <p class="span5"><img src="img/screenshots/ishot-79.png" class="example"></p>
+                  <p class="span5"><img src="img/screenshots/ishot-80.png" class="example"></p>
+                </div>
+              </section>
+            </section>
+            <hr>
+            <h2>Klasifikace syntaxe podle účelu</h2>
+            <div class="row">
+              <div class="span5">
+                <h3>Konkrétní</h3>
+                <p>Definuje vlastní syntax. </p>
+                <p>Obsahuje dostatečně mnoho terminálů, které zjednodušují a zjednoznačňují syntaktickou analýzu i čitelnost programu</p>
+                <p><img src="img/screenshots/konkretni syntax.png" width="400"><img src="img/screenshots/konkretni syntax 1.png" width="400"><img src="img/screenshots/konkretni syntax diagram.png" width="400"></p>
+              </div>
+              <div class="span5">
+                <h3>Abstraktní</h3>
+                <p>popisuje strukturu</p>
+                <p>je nezávislá na konkrétní reprezentaci</p>
+                <p>obsahuje především neterminály</p>
+                <p>terminály slouží pouze jako diskriminátory odvozovacích pravidel</p>
+                <p>vhodná pro formální práci s jazykovými termy, např. pro definici denotační sémantiky</p>
+                <p><img src="img/screenshots/abstraktni syntax.png"><img src="img/screenshots/abstraktni syntax 2.png"><img src="img/screenshots/abstraktni syntax 3.png"><img src="img/screenshots/abstraktni syntax 4.png"><img src="img/screenshots/abstraktni syntax 5.png"><img src="img/screenshots/abstraktni syntax 6.png"></p>
+              </div>
+            </div>
+            <hr class="soft">
+            <h2>Klasifikace podle toho co popisuje</h2>
+            <p class="note">Lexikální atom = celek zpracování jazyku, vznikne tokenizací na atomické části</p>
+            <div class="row">
+              <div class="span5">
+                <h3>Lexikální syntax (mikrosyntax)</h3>
+                <p>Popisuje lexikální strukturu jazyka. Slouží k vymezení lexika – množiny lexikálních atomů neboli lexémů. Bývá popsána <em>regulární gramatikou</em> nebo <em>jednoduchou bezkontextovou gramatikou</em>. Terminály gramatiky jsou znaky. Vlastní program je pak definován jen jako posloupnost lexikálních atomů.</p>
+                <p><strong>Přirovnání</strong> - morfologii v přirozeném jazyce – tvoří jeho slovník.</p>
+                <p>Lexikální syntax nejen vymezuje lexémy, ale i způsob, jak je rozpoznat ve vstupním proudu znaků. Ve většině jazyků musí být některé dvojice sousedních lexémů odděleny tzv. bílým místem. Proto je další součástí lexikální syntaxe i syntax tzv. bílého místa a komentářů .</p>
+                <p>Důsledek: V jazycích se zanořovanými komentáři nestačí pro popis mikrosyntaxe regulární gramatika.</p>
+                <h4>Přístupy k bílým znakům coby oddělovačům lexémů</h4>
+                <ul>
+                  <li>Bílé místo nehraje žádnou roli [Fortran, Cobol]. Neostrá hranice mezi lexikální a syntaktickou analýzou, víceméně ad hoc.</li>
+                  <li>Hranice mezi lexémy je často zřejmá z jejich lexikální syntaxe; pokud ne, jsou lexémy jsou odděleny aspoň jedním bílým znakem nebo komentářem [většina jazyků].</li>
+                  <li>Jazyky s liberální lexikální syntaxí jmen tedy častěji vyžadují (aspoň jednu) mezeru mezi lexémy [Agda].</li>
+                  <li>Šířka bílého místa hraje roli na začátcích řádků, je tedy významná velikost odsazení [Iswim, Python, Haskell].</li>
+                  <li>Šířka bílého místa kdekoliv v textu je významná [„dvourozmeřné“ jazyky – Epigram].</li>
+                </ul>
+                <h4>Lexikální syntax komentářů</h4>
+                <ul>
+                  <li>Komentáře v závorkách</li>
+                  <li>Komentáře řádkové</li>
+                  <li>Komentáře autodokumentační - za hlavičkami funkcí tříd, metod,... (Scheme, Smalltalk, Java, eLisp...)</li>
+                </ul>
+              </div>
+              <div class="span5">
+                <h3>Frázová syntax (makrosyntax)</h3>
+                <p>Popisuje úplnou strukturu programu. Bývá popsána bezkontextovou gramatikou. Terminály gramatiky jsou lexikální atomy.</p>
+                <p><strong>Přirovnání</strong> - větné skladbě přirozeného jazyka – tvoří množinu správně vytvořených vět.</p>
+                <h4>Kontextová omezení</h4>
+                <p>Podmínky vymezující podmnožinu jazyka generovaného gramatikou frázové syntaxe. p Makrosyntax lze přirovnat k větné skladbě přirozeného jazyka – tvoří množinu správně vytvořených vět.</p>
+                <p>Kontextovým omezením se také ˇríká statická sémantika.</p>
+                <p>Makrosyntax lze přirovnat k větné skladbě přirozeného jazyka – tvoří množinu správně vytvořených vět.</p>
+                <h4>Makrojazyk</h4>
+                <p><img src="img/screenshots/makrojazyk.png"></p>
+                <div class="row">
+                  <div class="span5">
+                    <h5>cpp</h5>
+                    <p>Makrosyntax lze přirovnat k větné skladbě přirozeného jazyka – tvoří množinu správně vytvořených vět.</p>
+                  </div>
+                  <div class="span5">
+                    <h5>Scheme</h5>
+                    <p>v programech lze použít makrojazyk, který má tutéž syntax a stejné funkce jako Scheme</p>
+                  </div>
+                  <div class="span5">
+                    <h5>Template Haskell</h5>
+                    <p>Makrosyntax lze přirovnat k větné skladbě přirozeného jazyka – tvoří množinu správně vytvořených vět.</p>
+                  </div>
+                  <div class="span5">
+                    <h5>M4</h5>
+                    <p>univerzální makrojazyk, použitelný bud’ samostatně, anebo ve spojení s nějakým programovacím jazykem jako jeho pˇredzpracující makrojazyk</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section id="semantika">
+            <header class="page-header">
+              <h1>Sémantika</h1>
+            </header>
+            <p>Význam, vztah mezi programem a výpočetním modelem. Přiřazuje významy programům nebo jejich částem.</p>
+            <p>Logický význam jednotlivých výrazů jazyka. Napr u datumu XX/XX/XX urcuje ktera cast co znamena - DD/MM/YY.</p>
+            <h3>Zadávání sémantiky</h3>
+            <ul>
+              <li><strong>Neformálně</strong> – popisem v přirozeném jazyce. To může být nepřesné, často je popis neúplný, nejednoznačný.</li>
+              <li><strong>Prohlášením jedné implementace kompilátoru za standard</strong> - sice jednoznačné, ale případné chyby v kompilátoru se tak stávají součástí definice jazyka.</li>
+              <li><strong>Formálně</strong>, pomocí matematického zápisu.</li>
+            </ul>
+            <h2>Rozdělení formálních sémantik</h2>
+            <h3><span class="badge badge-inverse">A</span> Denotační sémantika</h3>
+            <p>definovaná na programech a jejich komponentách explicitně (jako množina funkcí přiřazujících částem programů význam).</p>
+            <p><img src="img/screenshots/denotacni.png" width="500"></p>
+            <p><img src="img/screenshots/denotacni prirazeni.png" width="500"></p>
+            <h3><span class="badge badge-inverse">B</span> Axiomatická sémantika</h3>
+            <p>dána jako množina tvrzení (tzv. teorie) o nějakém systému, v němž probíhá výpočet. Používá se zejména u imperativních jazyků, protože tvrzení se vyjadřují o stavech.</p>
+            <p><img src="img/screenshots/axiomaticka.png" width="500"></p>
+            <h3><span class="badge badge-inverse">C</span> Operační sémantika</h3>
+            <p>se zavádí množinou pravidel popisujících výpočet abstraktního počítače. Výsledek tohoto výpočtu je významem programu.</p>
+            <p>Rozlišujeme strukturní (sos) a přirozenou (bos) operační sémantiku.</p>
+            <p><img src="img/screenshots/strukturni operacni.png" width="500"></p>
+            <p><img src="img/screenshots/prirozena operacni.png" width="500"></p>
+            <hr>
+            <h2>Determinismus sémantiky</h2>
+            <div class="row">
+              <div class="span5">
+                <h4><span class="badge badge-inverse">A</span> Nedeterministická sémantika</h4>
+                <p><img src="img/screenshots/nedeter semantika.png"></p>
+                <p><img src="img/screenshots/nedeter semantika 2.png"></p>
+              </div>
+              <div class="span5">
+                <h4><span class="badge badge-inverse">B</span> Deterministická sémantika</h4>
+                <p><img src="img/screenshots/deter semantika.png"></p>
+                <p><img src="img/screenshots/deter semantika 2.png"></p>
+              </div>
+            </div>
+          </section>
+          <section id="typy">
+            <header class="page-header">
+              <h1>Typy</h1>
+            </header>
+            <p>Každá proměnná, konstanta nebo složený výraz může nabývat jen jistých hodnot a lze s nimi provádět pouze jisté operace. ~ <strong>typ výrazu</strong> = typ nám označuje, jakých hodnot může výraz nabývat a jaké operace na něj mohou být aplikovány.</p>
+            <h3>Pojetí typů</h3>
+            <ul>
+              <li>množiny hodnot</li>
+              <li>heterogenní algebry (množiny hodnot spolu s operacemi na nich) (algebraické typy)</li>
+              <li>variety heterogenních algeber (množiny s operacemi a axiomy) (ADT)</li>
+            </ul>
+            <div class="example">
+              <header>
+                <h4>Typ zásobník nad celými čísly</h4>
+              </header>
+              <p><img src="img/screenshots/zasobnik nad celymi daty.png" width="400"></p>
+              <p><img src="img/screenshots/zasobnik nad celymi daty 2.png" width="400"></p>
+              <p><img src="img/screenshots/zasobnik nad celymi daty 3.png" width="400"></p>
+            </div>
+            <h2>Klasifikace podle úrovně, na které vznikají</h2>
+            <h4><span class="badge badge-inverse">A</span> Úroveň stroje</h4>
+            <p>tyto typy jsou přímo podporované strojem. Bývají to zejména typy Char (Byte), Integer a Real.</p>
+            <h4><span class="badge badge-inverse">B</span> Úroveň jazyka</h4>
+            <p>tyto typy nejsou definované strojem, ale jsou simulovány programovacím jazykem. Algoritmy operací nad těmito typy nejsou integrovány v elektronických obvodech stroje, ale jsou součástí programovacího jazyka. Patří sem často typy jako Boolean, Array nebo Record.</p>
+            <h4><span class="badge badge-inverse">C</span> Úroveň programátora</h4>
+            <p>tyto typy si v daném programovacím jazyku definuje sám programátor. Můžeme sem řadit například typ List nebo Tree, ale i jednoduchý typ jako je Enum.</p>
+            <hr>
+            <h2>Klasifikace podle datové struktury</h2>
+            <section class="toc row">
+              <div class="span5">
+                <h4><span class="badge badge-inverse">A</span> Základní (primitivní, atomické)</h4>
+                <ul>
+                  <li>Logické hodnoty <span class="label">skalární</span> <code>Boolean</code></li>
+                  <li>Znaky (krátké, dlouhé) <span class="label">skalární</span> <code>Char</code></li>
+                  <li>Čísla (celá, desetinná) <span class="label">skalární</span> <code>Integer, Real</code></li>
+                  <li>Adresy <span class="label">skalární</span> </li>
+                </ul>
+              </div>
+              <div class="span5">
+                <h4><span class="badge badge-inverse">B</span> Složené</h4>
+                <p>Vznikly spojením několika jednoduchých datových typů. Každý strukturovaný datový typ musí definovat operaci selekce (tzv. selektor) pomocí něhož je možno přistupovat k jednotlivým položkám datového typu.</p>
+                <ul>
+                  <li><span class="badge badge-inverse">B1</span>Kartézský součin <span class="label">součinové</span></li>
+                  <li><span class="badge badge-inverse">B2</span>Disjunktní sjednocení <span class="label">součtové</span></li>
+                  <li><span class="badge badge-inverse">B3</span>Zobrazení (pole, funkce) <span class="label">mocniné</span></li>
+                </ul>
+              </div>
+            </section>
+            <hr>
+            <h4><span class="badge badge-inverse">B1</span> Kartézský součin</h4>
+            <p><img src="img/screenshots/kartezsky soucin.png" width="500"></p>
+            <h4><span class="badge badge-inverse">Bx</span> Agregáty</h4>
+            <p><img src="img/screenshots/agregaty.png" width="500"><img src="img/screenshots/agregaty 2.png" width="500"></p>
+            <h4><span class="badge badge-inverse">B2</span> Disjunktní sjednocení</h4>
+            <p><img src="img/screenshots/disjunktni sjednoceni.png" width="500"></p>
+            <h4><span class="badge badge-inverse">Bx</span> Uniony</h4>
+            <p><img src="img/screenshots/uniony.png" width="500"></p>
+            <p> <img src="img/screenshots/obecne vlastnosti.png" width="500"><img src="img/screenshots/obecne vlastnosti 2.png" width="500"></p>
+            <h4><span class="badge badge-inverse">B3</span> Pole
+              <p><img src="img/screenshots/pole.png" width="500"><img src="img/screenshots/pole vicerozmerna.png" width="500"></p>
+            </h4>
+            <h4><span class="badge badge-inverse">B3</span> Funkce
+              <p><img src="img/screenshots/funkce.png" width="500"></p>
+            </h4>
+            <h4>Potenční množiny
+              <p> <img src="img/screenshots/potencni mnoziny.png" width="500"></p>
+            </h4>
+            <h4>Prázdný typ</h4>
+            <p><img src="img/screenshots/prazdny typ.png" width="500"></p>
+            <h4>Jednotkový typ</h4>
+            <p><img src="img/screenshots/jednotkovy typ.png" width="500"></p>
+            <h4>Výčtové typy</h4>
+            <p><img src="img/screenshots/vyctove typy.png" width="500"></p>
+            <h4>Rekursivní (induktivní) typy</h4><img src="img/screenshots/rekurzivni typy.png" width="500"><img src="img/screenshots/rekurzivni typy priklad.png" width="500"><img src="img/screenshots/rekurzivni typy priklad 2.png" width="500">
+            <h4>Korekursivní (koinduktivní) typy</h4><img src="img/screenshots/korekurzivni typy.png" width="500"><img src="img/screenshots/korekurzivni typy priklad.png" width="500">
+            <h3>Genericita <span class="label">Zaradit</span></h3>
+            <p>Programovací jazyk podporuje genericitu, pokud umožňuje parametrizovat datové typy.</p>
+            <p>Parametrizované datové typy se nazývají generické datové typy.</p>
+            <p><code>Data = array [0 .. 4] of Real</code></p>
+            <p>O skutečné genericitě však většinou hovoříme až tehdy, umožňuje-li jazyk parametrizovat programátorem vytvořené datové typy.</p>
+            <p>lze uvažovat pouze v systémech s mani- festovanými typy. Systémy s implicitními dynamickými typy jsou generické už svojí povahou</p>
+            <h3>Monomorfismus a polymorfismus</h3>
+            <h4>Monomorfismus</h4>
+            <p>monomorfní typy jsou bud’ základní typy, anebo jsou (pomocí typových konstruktorů) složené z monomorfních typů.</p>
+            <h4>Polymorfismus</h4>
+            <p>polymorfní typy zastupují celou množinu monomorfních typů.</p>
+            <p>Funkci nazveme polymorfní, pokud pracuje stejným způsobem nad různými typy.</p>
+            <p class="note">problém řešený polymorfními funkcemi není principiálně řešitelný přetížením. Polymorfní funkce pracuje uniformně s li- bovolným typem - a tedy potenciálně s nekonečně mnoha typy.</p>
+            <div class="row">
+              <div class="span5">
+                <h4>Parametrický polymorfismus</h4>
+                <p>v typových výrazech se vyskytují typové proměnné, za něž lze dosadit libovolný typ.</p><img src="img/screenshots/parametricky polymorfismus.png"><img src="img/screenshots/parametricky polymorfismus 2.png"><img src="img/screenshots/parametricky polymorfismus 3.png"><img src="img/screenshots/parametricky polymorfismus 4.png">
+                <h5>Kovariance a kontravariance</h5>
+                <p><img src="img/screenshots/kovariance.png"><img src="img/screenshots/kovariance 2.png"><img src="img/screenshots/kovariance 3.png"><img src="img/screenshots/kovariance 4.png"></p>
+                <p>Využití: zejména v typovaných systémech pro objektoveˇ orientované jazyky.</p>
+                <p>Nevýhoda: nerozhodnutelnost otypování » nutné dynamické typové kontroly.</p>
+              </div>
+              <div class="span5">
+                <h4>Podtypový (inklusní) polymorfismus</h4>
+                <p>typovém systému se zavede mezi typy relace<img src="img/screenshots/inline char.png">a každá hodnota má kromě svého nejmenšího typu i všechny jeho nadtypy.</p>
+                <p><img src="img/screenshots/podtypovy.png"><img src="img/screenshots/podtypovy priklad.png"></p>
+              </div>
+            </div>
+            <h4>Přetížení</h4>
+            <p>Identifikátor funkce nazveme přetížený (overloaded), pokud reprezentuje více než jednu funkci. Nečiníme zde přitom rozdílu mezi funkcí a operáto- rem, tj. může mít přetížený jak identifikátor funkce, tak operátor.</p>
+            <div class="row">
+              <div class="span5">
+                <h5>kontextově závislé přetížení</h5>
+                <p>funkce specifikované přetíženým iden- tifikátorem lze rozlišit pouze pomocí návratové hodnoty funkce</p>
+                <p><img src="img/screenshots/ishot-82.png" width="500"></p>
+              </div>
+              <div class="span5">
+                <h5>kontextově nezávislé přetížení</h5>
+                <p>funkce specifikované přetíženým identifikátorem lze rozlišit pomocí počtu nebo typu parametrů</p>
+              </div>
+            </div><img src="img/screenshots/pretizeni.png" width="500"><img src="img/screenshots/pretizeni 2.png" width="500"><img src="img/screenshots/pretizeni priklad.png" width="500">
+            <h4>Přetypování (type cast)</h4>
+            <p>Přetypování je explicitní změna typu výrazu, při současném přibližném zachování jeho hodnoty. Pomocí transformačních funkcí.</p>
+            <h4>Koerce (coertion)</h4>
+            <p>Implicitní přetypování <code>3.14 + 7</code> na <code>3.14 + Real(7)</code></p>
+            <p><img src="img/screenshots/koerce.png" width="500"></p>
+            <h4>Druhy</h4>
+            <p>Typy v programovacích jazycích slouží ke klasifikaci hodnot. U jazyků s bohatšími typovými systémy druhy slouží ke klasifikaci typů, typových konstruktorů, typových funkcí apod.</p>
+            <p><img src="img/screenshots/druhy.png" width="350"></p>
+            <h4>Hodnotově závislé typy</h4>
+            <p>Bohatší typové systémy mohou pracovat s typy závislými na hodnotách. Typové konstruktory mohou být parametrizovány nejen typy, ale i hodnotami.</p>
+            <p><img src="img/screenshots/hodnotove zavisle - priklad.png" width="500"></p>
+            <p><img src="img/screenshots/hodnotove zavisle - priklad 2.png" width="500"></p>
+            <p><img src="img/screenshots/hodnotove zavisle - summary.png" width="500"></p>
+          </section>
+          <section id="vyrazy">
+            <header class="page-header">
+              <h1>Výrazy</h1>
+            </header>
+            <h4>Funkce</h4>
+            <p>Základní způsob strukturace programu.</p>
+            <p>Některé jazyky se k funkcním chovají jako ke všem ostatním výrazům – funkce jako parametr jiné funkce, funkci vrátit jako výsledek funkce, funkce konstruující funkce = funkce jsou hodnotami vysokého řádu.</p>
+            <p><img src="img/screenshots/vyraz.png" width="500"></p>
+            <p><img src="img/screenshots/vyraz 2.png" width="500"></p>
+            <h3>Funkcionální a procedurální abstrakce</h3>
+            <p><img src="img/screenshots/abstrakce.png" width="500"></p>
+            <h4>Funkcionální abstrakce</h4>
+            <p>Se provádí nad výrazem tím, že některé jeho (volné) proměnné se prohlásí za parametry výsledné funkce. Počet těchto parametrů určuje tzv. aritu.</p>
+            <p>Umožňuje-li jazyk pracovat s funkcemi vyšších řádů, lze všechny funkce (procedury) převést na unární.</p>
+            <h4>Procedurální abstrakce</h4>
+            <p><img src="img/screenshots/proceduralni abstrakce.png" width="500"></p>
+            <h3>Proměnné</h3>
+            <p>Rozdílný význam v různých paradigmatech:</p>
+            <h4>Funkcionální, logické</h4>
+            <p>čisté proměnné, proměnné v matematickém smyslu. Proměnná označuje hodnotu (třebaže předem neurčenou). Slouží také k označení parametrů funkcí resp. relací.</p>
+            <p><img src="img/screenshots/promene funkc.png" width="400"></p>
+            <h4>Imperativní</h4>
+            <p>tzv. přepisovatelné proměnné.</p>
+            <p>Proměnná označuje pamět’ové místo. Teprve toto pamět’ové místo slouží jako (přechodné) úložiště hodnoty. Hodnota uložená v pamět’ovém místě se může měnit. Tím se mění stav výpočtu. Vevětšiněimperativníchjazyků(Pascal,C,Java,...)sevšakjménemproměnné označuje i hodnota uložená v odpovídajícím pamět’ovém místě (automatické dereferencování).</p>
+            <p><img src="img/screenshots/promene imperativni.png" width="500"></p>
+            <p><img src="img/screenshots/promene imperativni 2.png" width="500"></p>
+            <p><img src="img/screenshots/promene imperativni 3.png" width="350"></p>
+            <p><img src="img/screenshots/promene imperativni 4.png" width="250"></p>
+            <h3>Příkazy</h3>
+            <p><img src="img/screenshots/prikazy.png" width="500"></p>
+            <p><img src="img/screenshots/prikazy bez.png" width="500"></p>
+            <p><img src="img/screenshots/prikazy bez 2.png" width="500"></p>
+            <p><img src="img/screenshots/prikazy bez 3.png" width="500"></p>
+            <p><img src="img/screenshots/prikazy bez 4.png" width="500"></p>
+            <p><img src="img/screenshots/ishot-1.png" width="500"></p>
+            <p><img src="img/screenshots/ishot-2.png" width="500"></p>
+            <p><img src="img/screenshots/ishot-3.png" width="500"></p>
+            <h3>Řadicí příkazy</h3>
+            <h4>Skoky</h4>
+            <p>Explicitní přenesení řízení výpočtu do jiné části programu. Obvyklé ve starších jazycích a jazycích nižší úrovně. Většina jazyků klade na použití skoků omezení (například je možný jen skok do stejného nebo nadřazeného bloku).</p>
+            <p>Přílišné používání skoků vede k nečitelnému kódu a těžko odhalitelným chybám.</p>
+            <p>Například <code>goto</code> v C</p>
+            <h4>Úniky</h4>
+            <p>Ukončují provádění složeného příkazu, který únikový příkaz obsahuje.</p>
+            <ul>
+              <li>nejvnitřnější</li>
+              <li>n-tý nejvnitřnější <code>exit n</code></li>
+              <li>nejvnitřnější určitého druhu (cykly, case)
+                <ul>
+                  <li>C: <code>continue, break</code></li>
+                  <li>Prolog: <code>!</code></li>
+                </ul>
+              </li>
+              <li>nejvnitřnější funkcionální či procedurální abstrakce, C: <code>return</code></li>
+              <li>celý program
+                <ul>
+                  <li><code>halt</code></li>
+                  <li>Fortran: <code>stop</code></li>
+                  <li>sh: <code>exit</code></li>
+                </ul>
+              </li>
+            </ul>
+            <h4>Výjimky</h4>
+            <p>Mohou být ošetřeny procedurou pro zpracování výjimky (tzv. handler). Výjimek může být více,různýchtypů,aprokaždoumůžebýtdefinovánojinézpracování;různéčásti programu mohou definovat různá zpracování stejné výjimky.</p>
+            <p>Není-li výjimka zpracována (ošetřena), je šířena (propagována) do příkazu nadřazeného. Některé výjimky jsou zabudované a vyvolávané zabudovanými operacemi, jiné lze</p>
+            <p>uživatelsky definovat a vyvolat zvláštním příkazem (ML: raise, Java: throw).</p>
+            <p>Oblast zpracování (scope) výjimky je vymezena programovým blokem nebo zvláštní</p>
+            <p>syntaxí (try. . . end).</p>
+            <h3>Volání funkcí (= předávání parametrů)</h3>
+            <article class="note">
+              <h5>Předávání parametrů</h5>
+              <p>proces navázaní skutečných parametrů na formální parametry funkce.</p>
+              <h5>volání funkce (procedury)</h5>
+              <p>aplikace funkce (procedury) na argumenty</p>
+            </article>
+            <article class="note">
+              <p>Přiřazování hodnot na místa v paměti</p>
+              <p><strong>L-value</strong> - místo v paměti, do kterého chceme zapisovat. </p>
+              <p><strong>R-value</strong> - hodnota, která je v paměti uložena.</p>
+            </article>
+            <h5>Definice funkce</h5>
+            <p><img src="img/screenshots/ishot-5.png" width="500"></p>
+            <h5>Aplikace (volání) funkce</h5>
+            <p><img src="img/screenshots/ishot-6.png" width="350"></p>
+            <h3>Způsoby předávání parametrů</h3>
+            <section class="row">
+              <article class="span5">
+                <header>
+                  <h4><span class="label">1.</span> Volání hodnotou (Call by value)</h4>
+                </header>
+                <p>striktní vyhodnocení</p>
+                <p>C, Lisp</p>
+                <p>Postupně jsou vyhodnoceny všechny aktuální parametry. Výsledné hodnoty jsou přiřazeny dočasným lokálním proměnným, odpovídajícím formálním parametrům funkce. S těmito proměnnými se pracuje jako s libovolnými jinými lokálními proměnými. Po vykonání funkce dočasné proměnné zaniknou. Hodnoty původních vstupních výrazů se nezmění.</p>
+                <p><img src="img/screenshots/ishot-7.png"></p>
+              </article>
+              <article class="span5">
+                <header>
+                  <h4><span class="label">2.</span> Volání odkazem (Call by reference)</h4>
+                </header>
+                <p>PL1, C++</p>
+                <p>Podobné volání hodnotou, ale skutečné parametry funkcí a procedur smějí být jen (adresovatelná) pamět’ová místa (Ref T) a neprovádí se jejich implicitní dereferencování.</p>
+                <p>Formální parametry jsou nepřepisovatelné proměnné typu „odkaz na hodnotu“ (Ref T) – např. v Pascalu.</p>
+                <p>Při simulaci pomocí volání hodnotou (např. v C) mohou být formální parametry přepisovatelné proměnné uchovávající přepisovatelné proměnné (Ref (Ref T)) – dereferencování je pak dvojnásobné.</p>
+                <p>Nejprve se vyhodnotí aktuální parametry. Předpokládá se přitom, že všechny aktuální parametry mají L-value. Pokud by některý skutečný parametr neměl L-value, je možné jeho R-value přenést do dočasné proměnné a vzít L-value této proměnné. Mnoho jazyků však v této situaci jednoduše vyhlásí chybu. Do funkce pak pošleme adresy (tedy L-values) aktuálních parametrů.</p>
+                <p>V jazyku je potřeba mít zabudované systémové funkce na získání adresy k proměnné <code>ref(x)</code> a funkci, která k dané adrese vrátí její obsah <code>deref(x)</code></p>
+                <p>Manipulace probíhá přímo s obsahy paměťových buněk na zadaných adresách. Funkce může mít vedlejší efekt na své parametry.</p>
+                <p><img src="img/screenshots/ishot-12.png"></p>
+                <p><img src="img/screenshots/ishot-13.png"></p>
+              </article>
+              <article class="span5">
+                <header>
+                  <h4><span class="label">3.</span> Volání hodnotou-výsledkem. (Call by value-result)</h4>
+                </header>
+                <p>Fortran, SR</p>
+                <p>Nejprve se u všech skutečných parametrů zjistí L-value i R-value. R-value jsou předány do funkce stejně jako u volání hodnotou. L-value všech parametrů jsou uschovány do tabulky. Po vykonání těla funkce, dříve než jsou dočasné proměnné odstraněny ze zásobníku, jsou hod- noty dočasných proměnných nakopírovány zpět do L-value aktuálních parametrů.</p>
+                <p>Tento způsob předávání parametrů dává v mnoha případech podobné výsledky, jako předávání parametru odkazem.</p>
+                <p><strong>co-rutina</strong> - připouštíme paralelní běh volající a volané funkce ve stejné virtuální paměti.</p>
+                <p><img src="img/screenshots/ishot-15.png"></p>
+              </article>
+              <article class="span5">
+                <header>
+                  <h4><span class="label">4.</span> Volání jménem (Call by name)</h4>
+                </header>
+                <p>Algol68</p>
+                <p>normální vyhodnocení</p>
+                <p>Aktuální parametry se považují za jména a jsou opakovaně vyhodnocovány kdykoli, kdy jsou uvedeny. Tento způsob předávání parametrů je dosti komplikovaný, přináší zvláštní vedlejší efekty a v moderních programovacích jazycích se běžně nepoužívá. Předávání parametru jménem je však co do funkčnosti identické s používáním makra.</p>
+                <p><img src="img/screenshots/ishot-8.png"></p>
+                <p><img src="img/screenshots/ishot-9.png"></p>
+                <p><img src="img/screenshots/ishot-10.png"></p>
+              </article>
+              <article class="span5">
+                <header>
+                  <h4><span class="label">5.</span> Smíšené volání</h4>
+                </header>
+                <h5>Výsledkem</h5>
+                <p><img src="img/screenshots/ishot-14.png"></p>
+                <p><img src="img/screenshots/ishot-16.png"></p>
+                <p><img src="img/screenshots/ishot-17.png"></p>
+              </article>
+              <article class="span5">
+                <header>
+                  <h4><span class="label">6.</span> Volání dle potřeby</h4>
+                </header>
+                <p>líné vyhodnocení</p>
+                <p><img src="img/screenshots/ishot-11.png"></p>
+              </article>
+            </section>
+            <h2>Rozsah platnosti proměnných</h2>
+            <p>jak jazyk definuje termín vně modulu, co je vlastně vnějšek modulu. K tomuto problému existují v zásadě dva přístupy:</p>
+            <div class="row">
+              <article class="span5">
+                <h4>Statický (lexikální) rozsah proměnných - statický spoj (static link)</h4>
+                <p>Vnějšek modulu je tak určen strukturou programu, ještě dříve než je program spuštěn na počítači.</p>
+                <p>ukazatel na aktivační záznam nejbližšího lexikálně nadřazeného bloku.</p>
+              </article>
+              <article class="span5">
+                <h4>Dynamický rozsah proměnných - dynamický spoj (dynamic link)</h4>
+                <p>nějšek je tvořen těmi aktivacemi funkcí, ze kterých byl aktivován daný modul. Vnějšek modulu tak není možné určit ze zdrojového programu, je dán až průběhem výpočtu.</p>
+                <p>ukazatel na předchozí aktivační záznam uložený v zásobníku, tedy ukazatel na aktivační záznam volající funkce.</p>
+              </article>
+            </div>
+            <p><img src="img/screenshots/ishot-81.png"></p>
+            <h5>Zjišťování platnosti proměnné</h5>
+            <ol>
+              <li>Je proměnná lokální danému modulu?</li>
+              <li>Hledání modulu ve kterém je proměnná nadeklarována (prohledávání zásobníku za pomocí spojů)</li>
+            </ol>
+            <p class="note">Zásobník programu obsahuje návratovou adresu, lokální proměnné, skutečné parametry a <strong>dynamický a statický spoj</strong></p>
+          </section>
+          <section id="pamet">
+            <header class="page-header">
+              <h1>Správa paměti</h1>
+            </header>
+            <h3>Paměťové třídy dat</h3>
+            <p class="note">V prostředí souběžného zpracování procesů je rozlišení dat na persistentní a transientní relativní.</p>
+            <div class="row">
+              <article class="span5">
+                <h4>Persistentní data</h4>
+                <p>existují nezávisle na výpočtu, jsou spravována souborovým podsystémem operačního systému. Obvykle jsou umístěna na vnějších pamět’ových médiích (soubory, databáze).</p>
+              </article>
+              <article class="span5">
+                <h4>Transientní data</h4>
+                <p>existují pouze po dobu výpočtu. Jsou obvykle umístěna v dostupné (procesem adresovatelné) části operační paměti (hodnoty proměnných, parametrů, obsahy přepisovatelných proměnných, ...), ale i vně (dočasné soubory, data na portech, ...).</p>
+                <h5>Statická</h5>
+                <p>prováděná překladačem (statická data, třída static, own).</p>
+                <p>[instrukce programu, systémová data,statická data, vyrovnávací paměti, ...]</p>
+                <h5>Automatická (zásobníková)</h5>
+                <p>v době výpočtu při zahájení/ukončení aktivace procedury, bloku, aplikace funkce na argumenty (automatická data, třída auto).</p>
+                <p>[lokální data v blocích, parametry funkcí a procedur, pomocné datové struktury ve funkcích, návratové adresy, . . . ]</p>
+                <h5>Dynamická (haldová)</h5>
+                <p>v době výpočtu, prováděná speciálními procedurami pro alokaci, dealokaci, přesouvání, scelování, . . . (dynamická data, třída dynamic).</p>
+                <ul>
+                  <li>řízená explicitně programem [malloc, free, new, dispose, mark, release]</li>
+                  <li>spouštěná výhradně „run-time podporou“ výpočtu [garbage collecting, setřásání]</li>
+                </ul>
+              </article>
+            </div>
+            <hr>
+            <h3>Fáze správy paměti</h3>
+            <ul>
+              <li>alokace (přidělení)</li>
+              <li>dealokace (uvolnění)</li>
+              <li>obnovení volné paměti může vyžadovat gc</li>
+              <li>scelování – změna polohy obsazených a volných bloků
+                <ul>
+                  <li>Částečné</li>
+                  <li>Úplné</li>
+                </ul>
+              </li>
+            </ul>
+            <div class="row">
+              <article class="span5">
+                <h4>Scelování (spojování sousedních volných bloků)</h4>
+                <p>je snazší, pokud se seznam volných bloků udržuje uspořádaný podle adres</p>
+                <p><img src="img/screenshots/ishot-28.png"></p>
+              </article>
+              <article class="span5">
+                <h4>Setřásání (úplné scelování)</h4>
+                <p>způsobí změny ukazatelů</p>
+                <p><img src="img/screenshots/ishot-29.png"></p>
+              </article>
+            </div>
+            <hr>
+            <h3>Problémy </h3>
+            <ul>
+              <li>smetí (» garbage collector)</li>
+              <li>slepé odkazy</li>
+              <li>fragmentace (» částečné scelování)</li>
+            </ul>
+            <h3>Správa dynamické paměti</h3>
+            <div class="row">
+              <article class="span5">
+                <header>
+                  <h4>Inicializace</h4>
+                </header>
+                <p>vytvoření seznamu volných bloků, seznamu mimohaldových ukazatelů</p>
+                <p><img src="img/screenshots/ishot-24.png"></p>
+              </article>
+              <article class="span5">
+                <header>
+                  <h4>Alokace bloku požadované velikosti</h4>
+                </header>
+                <p><img src="img/screenshots/ishot-25.png"></p>
+              </article>
+              <article class="span5">
+                <header>
+                  <h4>Uvolnění bloku</h4>
+                </header>
+                <p>nekorektní – vznik slepého odkazu</p>
+                <p><img src="img/screenshots/ishot-26.png"></p>
+                <p>nekorektní – vznik smetí</p>
+                <p><img src="img/screenshots/ishot-27.png"></p>
+              </article>
+            </div>
+            <hr>
+            <h3>Úklid smetí (garbage collection)</h3>
+            <p>každý alokovaný blok má příznak dostupnosti (1 bit)</p>
+            <p>všechny příznaky dostupnosti se nastaví na „nedostupné“</p>
+            <p>postupuje se od známých ukazatelů a všechny navštívené bloky se označí „dostupné“ (při návštěvě bloku již označeného za „dostupný“ se hlouběji nepokračuje)</p>
+            <p>nakonec se všechny nedostupné bloky zařadí do seznamu volných</p>
+          </section>
+          <section id="logicke">
+            <header class="page-header">
+              <h1>Logické programování</h1>
+            </header>
+            <p>Patří mezi deklarativní paradigmata.</p>
+            <p>Logické programy popisují vztahy mezi hodnotami pomocí tzv. Hornových klausulí. Program se skládá ze <strong>seznamu klausulí</strong> (teorie) a z <strong>formule</strong> (cíle, dotazu). <strong>Výpočet</strong> je hledáním tzv. splňujících substitucí, tj. takových ohodnocení proměnných z cíle, při nichž cíl vyplývá (lze odvodit) z teorie.</p>
+            <p>Abstraktní syntax prototypového logického jazyka:<img src="img/screenshots/ishot-30.png" width="500"></p>
+            <p><img src="img/screenshots/ishot-31.png" width="500"><img src="img/screenshots/ishot-32.png" width="400"><img src="img/screenshots/ishot-33.png" width="500"><img src="img/screenshots/ishot-34.png" width="500"></p>
+            <h4>Termy</h4>
+            <p><img src="img/screenshots/ishot-35.png" width="500"></p>
+            <h4>Klausule</h4>
+            <p><img src="img/screenshots/ishot-36.png" width="400"></p>
+            <h4>Dotaz</h4>
+            <p><img src="img/screenshots/ishot-37.png" width="250"></p>
+            <p><img src="img/screenshots/ishot-38.png" width="500"><img src="img/screenshots/ishot-38.png" width="500"><img src="img/screenshots/ishot-40.png" width="500"></p>
+            <hr>
+            <h2>Sémantika logického programu</h2>
+            <h4>Substituce</h4>
+            <p><img src="img/screenshots/ishot-41.png" width="500"><img src="img/screenshots/ishot-42.png" width="500"></p>
+            <h4>Sémantika</h4>
+            <p><img src="img/screenshots/ishot-43.png" width="500"><img src="img/screenshots/ishot-44.png" width="500"></p>
+            <h4>Řízení výpočtu</h4>
+            <p><img src="img/screenshots/ishot-45.png" width="500"><img src="img/screenshots/ishot-46.png" width="500"></p>
+            <h2>Logické jazyky</h2>
+            <h3>Prolog</h3><img src="img/screenshots/ishot-47.png" width="300">
+            <h3>Gödel</h3><img src="img/screenshots/ishot-48.png" width="500">
+            <h3>Mercury</h3><img src="img/screenshots/ishot-49.png" width="400">
+            <hr>
+            <h2>Aplikace logického programování</h2>
+            <ul>
+              <li>zpracování pˇrirozeného jazyka</li>
+              <li>expertní systémy</li>
+              <li>symbolická manipulace s výrazy, ˇrešení rovnic</li>
+              <li>simulace</li>
+            </ul>
+            <h3>Výhody</h3>
+            <ul>
+              <li>vyšší úrovenˇ, tj. program je bližší popisu problému než implementaci</li>
+              <li>logika programu oddeˇlena od ˇrízení výpocˇtu</li>
+              <li>snazší du ̊kazy korektnosti</li>
+            </ul>
+            <h3>Nevýhody</h3>
+            <ul>
+              <li>efektivita</li>
+              <li>nevýhodné pro aplikace s intenzivním I/O</li>
+            </ul>
+          </section>
+          <section id="funkcionalni">
+            <header class="page-header">
+              <h1>Funkcionální</h1>
+            </header>
+            <p>Patří k deklarativním paradigmatům.</p>
+            <h3>Rysy funkcionálních jazyků</h3>
+            <ul>
+              <li>Nerozlišuje stavy, výpočet je jednostavový. Nemá tedy selektory složek stavu, tj. přepisovatelné proměnné.</li>
+              <li>jazyky vycházejí z lambda kalkulu nebo kombinátorového kalkulu, tedy pracují především s funkcemi a funkce jsou hodnotami „první kategorie“.</li>
+              <li>Vysoká míra ortogonality.</li>
+              <li>bohatý typový systém – parametrický polymorfismus, typové funkce a třídy</li>
+              <li>uživatelské typy</li>
+              <li>definice podle vzoru</li>
+              <li>funkce vyššího řádu, kombinátory</li>
+              <li>líné vyhodnocování, nekonečné datové struktury</li>
+            </ul>
+            <h2>Sémantika funkcionálního jazyka</h2><img src="img/screenshots/ishot-50.png" width="500"><img src="img/screenshots/ishot-51.png" width="500"><img src="img/screenshots/ishot-52.png" width="500"><img src="img/screenshots/ishot-53.png" width="500"><img src="img/screenshots/ishot-54.png" width="500"><img src="img/screenshots/ishot-55.png" width="300"><img src="img/screenshots/ishot-56.png" width="300"><img src="img/screenshots/ishot-57.png" width="500"><img src="img/screenshots/ishot-58.png" width="500"><img src="img/screenshots/ishot-59.png" width="500"><img src="img/screenshots/ishot-60.png" width="500"><img src="img/screenshots/ishot-61.png" width="500"><img src="img/screenshots/ishot-62.png" width="500"><img src="img/screenshots/ishot-63.png" width="500"><img src="img/screenshots/ishot-64.png" width="500">
+            <hr>
+            <h2>Funkcionální jazyky</h2>
+            <h4>LISP</h4>
+            <p>(LISt Processing) – John McCarthy, konec 50. let</p>
+            <p>jednoduchá syntax, stejná pro data i algoritmy – homoikonický jazyk</p>
+            <p>není čistě funkcionální</p>
+            <p>netypovaný</p>
+            <p>dynamická viditelnost</p>
+            <p>dialekty: AutoLisp, eLisp, . . .</p>
+            <h4>Scheme</h4>
+            <p>netypovaný jazyk vycházející z Lispu, 80. léta</p>
+            <p>syntax podobná Lispu; statická viditelnost, striktní vyhodnocování, streamy</p>
+            <h4>ML</h4>
+            <p>typovaný jazyk, konec 70. let, Edinburgh</p>
+            <p>striktní vyhodnocování</p>
+            <p>dialekty: CaML, OCaML</p>
+            <h4>Erlang</h4>
+            <p>dynamicky typovaný jazyk se striktním vyhodnocováním</p>
+            <p>konstrukce pro podporu paralelního vyhodnocování</p>
+            <h4>Haskell</h4>
+            <p>čistě funkcionální, modulární, líně vyhodnocovaný</p>
+            <p>čisté začlenění imperativních konstrukcí do referenčně transparentního jazyka pomocí monadických typů a operací</p>
+          </section>
+          <section id="soubeznost">
+            <header class="page-header">
+              <h1>Souběžné zpracování</h1>
+            </header>
+            <h4>Multitasking</h4>
+            <p>souběžné zpracování úloh na jednom počítači</p>
+            <p>úlohy využívají různé prostředky (typicky pomalejší I/O zařízení)</p>
+            <p>interleaving</p>
+            <p>víceuživatelský režim</p>
+            <p>systém správy paměti je přizpůsoben souběžnému zpracování více úloh (stránkování, swapping,…)</p>
+            <h4>Distribuované zpracování</h4>
+            <p>rozdělení úlohy na nezávislé podúlohy, méně komunikace</p>
+            <p>výpočetní shluky</p>
+            <p>globálně distribuované úlohy</p>
+            <h4>Mobilní výpočty</h4>
+            <p>stěhování výpočtu po síti</p>
+            <h4>Víceprocesorové počítače</h4>
+            <section class="row">
+              <article class="span4">
+                <header>
+                  <h5>Několikaprocesorové (MIMD)</h5>
+                </header>
+                <p>samostatné procesory</p>
+                <p>vícejádrové subprocesory sdílející některé prostředky (pamět’ cache)</p>
+              </article>
+              <article class="span4">
+                <header>
+                  <h5>Procesorová pole (SIMD)</h5>
+                </header>
+                <p>využití: napˇr. grafické karty</p>
+              </article>
+              <article class="span4">
+                <header>
+                  <h5>Mnohaprocesorové (PRAM)</h5>
+                </header>
+                <p>systémy pro simulaci masivního paralelismu</p>
+              </article>
+            </section>
+            <h4>Vícepočítačové systémy</h4>
+            <p>tzv. shluky (clusters) - skupiny počítačů propojené sítí (obvykle lokální a velmi rychlou)</p>
+            <p>určené pro distribuované výpočty a pro zvýšení spolehlivosti</p>
+            <hr class="soft">
+            <h3>Interference a nezávislost</h3><img src="img/screenshots/ishot-68.png" width="500"><img src="img/screenshots/ishot-69.png" width="500"><img src="img/screenshots/ishot-70.png" width="500">
+            <p>Od procesů se obvykle očekává, že budou kooperovat, tedy nemohou být nezávislé. Neřízená (živelná) interference je však nepraktická, protože neomezeně interferující procesy je extrémně těžké programovat, ladit a spravovat. (Může však mít smysl na hardwarové úrovni.) Proto je vhodné interferenci omezit na přesně určená místa výpočtu a oblasti sdílené paměti.</p>
+            <h4>Podmíněná kritická sekce</h4><img src="img/screenshots/ishot-71.png" width="500"><img src="img/screenshots/ishot-72.png" width="350">
+            <h4>Semafory</h4><img src="img/screenshots/ishot-73.png" width="400"><img src="img/screenshots/ishot-74.png" width="200">
+            <h4>Problémy souběžného zpracování</h4>
+            <ul> 
+              <li><strong>Nedeterminismus</strong> – při souběžném zpracování v mnohem větší míře než při sekvenčním; cílem je psát programy globálně (vnějšně) deterministické – chyby vzniklé porušením tohoto pravidla se obtížně detekují, protože běhy výpočtu jsou prakticky neopakovatelné.</li>
+              <li>Závislost na relativní rychlosti zpracování.</li>
+              <li>Zablokování – čekání procesů na sebe navzájem.</li>
+              <li>Zmítání – „živá“ varianta zablokování (procesy tráví čas marnými pokusy na odstranění zablokování).</li>
+              <li>Strádání – situace, kdy některé procesy „stojí“ (setrvávají ve stejném stavu) a ostatní běží na jejich úkor – je důsledkem tzv. nespravedlivého plánování.</li>
+            </ul>
+            <h4>Zablokování (deadlock)</h4>
+            <p>je stav, kdy množina procesů čeká na přístup k prostředkům a z důvodu vzájemně nekompatibilních požadavků tento přístup nezíská.</p>
+            <p>„Živá“ varianta deadlocku – livelock (zmítání). Algoritmus plánování přidělování prostředků procesům je spravedlivý, když zaručuje, že každý proces bude čekat na přístup k požadovaným prostředkům nejvýše konečně dlouho.</p>
+            <p>K zablokování může dojít, právě když platí současně následující podmínky:</p>
+            <ul>
+              <li>Vzájemné vyloučení – každý prostředek je přidělen nejvýše jednomu procesu.</li>
+              <li>„Wait & hold“ – procesy čekající na prostředky si drží jiné dříve přidělené prostředky.</li>
+              <li>Cyklické čekání – v bipartitním grafu procesů a prostředků s hranami „chce“ a „je přidělen“ je cyklus.</li>
+            </ul>
+            <h3>Řešení zablokování</h3>
+            <ul> 
+              <li>Vyhýbání se zablokování – sledováním, zda se výpočet nepřiblížil nebezpečné oblasti. Drahé.</li>
+              <li>Prevence zrušením podmínky „wait & hold“ – vyžaduje se, aby každý proces požádal naráz o všechny prostředky, které bude potřebovat. Plýtvání prostředky.</li>
+              <li>Prevencezrušenímpodmínkycyklickéhočekání–naprostředcíchsezavede lineární uspořádání a vyžaduje se, aby byly požadovány jen v tomto pořadí. Elegantní, ale někdy může být omezující.</li>
+              <li>Detekce a zotavení – rozpoznání, že došlo k deadlocku, a zabití procesu.</li>
+              <li>Nerˇešení – ignorování deadlocku. Zabití procesů je ponecháno na vlastníkovi či vlastnících. Je-li zablokování v OS, zmrznutí a reboot.</li>
+            </ul>
+          </section>
+          <section id="viditelnost">
+            <header class="page-header">
+              <h1>Viditelnost</h1>
+            </header>
+            <h2>Viditelnost jazykových entit</h2>
+            <p class="note">Jazyková entita = cokoliv, co může být pojmenované</p>
+            <h3>Statická (Lexikální)</h3>
+            <p>Nejčastější</p>
+            <p>Pro každou definici jazykové entity (konstanty, proměnné, typu, ...)je tzv. statickou sémantikou určena oblast platnosti definice.</p>
+            <section class="row">
+              <article class="span4">
+                <header>
+                  <h4>Blokové jazyky</h4>
+                </header>
+                <p>eg. Pascal, Modula, Algol68</p>
+                <p>Stromová struktura - implicitně, viditelné vše od rodičů.</p>
+                <p>Globální a lokální entity</p>
+                <p><img src="img/screenshots/ishot-18.png"></p>
+                <p>V potomcích můžeme deklarací proměnné překrýt tu rodičovskou</p>
+                <p><img src="img/screenshots/ishot-19.png"></p>
+              </article>
+              <article class="span4">
+                <header>
+                  <h4>Modulární jazyky</h4>
+                </header>
+                <p>eg. C, Modula</p>
+                <p>Moduly se vzájemně nevnořují, ale mohou být tvořeny blokem.</p>
+                <p>Třídy viditelnosti: public / private.</p>
+                <p><img src="img/screenshots/ishot-20.png"></p>
+                <p><code>use A, B(t)</code> – M používá všechny proměnné z A, pouze proměnnou t z B</p>
+                <p><img src="img/screenshots/ishot-22.png"></p>
+              </article>
+              <article class="span4">
+                <header>
+                  <h4>Objektové jazyky</h4>
+                </header>
+                <p>Java</p>
+                <p>z hlediska viditelnosti podobné modulárním, rozlišují třídy a objekty.</p>
+                <h5>Objekt</h5>
+                <p>je modul se skrytými (privátními) přepisovatelnými proměnnými (tzv. atributy) a s veřejnými operacemi (tzv. metodami) nad těmito proměnnými.</p>
+                <h5>Třída</h5>
+                <p>(„generický objekt“) popisuje typ objektu.</p>
+                <p>Vlastní objekty se nazývaji instance třídy a vytvářejí se zvlášt’:</p>
+                <ul>
+                  <li>Deklarací - statické objekty</li>
+                  <li>Příkazem - dynamické objekty</li>
+                </ul>
+                <p>Definice třídou exportovaných atributů a metod je součástí</p>
+                <ul>
+                  <li>definice třídy – statické metody, případně atributy</li>
+                  <li>deklarace instance – atributy (někdy i metody)</li>
+                </ul>
+                <h5>Dědičnost</h5>
+                <p>mezi třídami je zavedena relace podtříd</p>
+                <p><img src="img/screenshots/ishot-23.png"></p>
+                <h5>Vlastnosti OO jazyků</h5>
+                <ul>
+                  <li>Třídy a objekty (statické nebo dynamické).</li>
+                  <li>Dědičnost a inkluzní polymorfismus</li>
+                  <li>Viditelnost omezená na objekty a řízená pomocí public / private (příp. protected).</li>
+                  <li>V (dynamických) objektech mohou být atributy i metody statické / dynamické</li>
+                </ul>
+                <h5>Příklady</h5>
+                <ul>
+                  <li>Simula67 považována za nejstarší jazyk, vněmž se poprvé objevily některé principy OO programování</li>
+                  <li>Smalltalk první čistě objektový OO jazyk; netypovaný</li>
+                  <li>Eiffel čistě objektový, typovaný</li>
+                  <li>C++ původně jen rozšíření C pomocí makrojazyka cpp, není čistě objektové</li>
+                  <li>Java spolu s C++ nejrozšířenější, není čistě objektová (má i primitivní typy, které nejsou třídami), ale má čistší design než C++</li>
+                  <li>Python, Ruby interpretovaný bytový kód</li>
+                  <li>Ada staticky typovaná, vznikla na zakázku MO USA na konci 70. let; pojmenovaná po Lady Lovelace</li>
+                  <li>OCaML objektová verze funkcionálního jazyka ML</li>
+                </ul>
+              </article>
+              <article class="span4">
+                <header>
+                  <h4>Amorfní jazyky</h4>
+                </header>
+                <p>Toy Languages</p>
+                <p>Nepoužitelné pro „programování ve velkém“.</p>
+              </article>
+            </section>
+            <h3>Dynamická</h3>
+            <p>Viditelnost jazykových entit závisí na momentálně aktivních programových jednotkách (blocích, funkcích, procedurách, ...) v době běhu.</p>
+            <p>Téměř nepoužívaná (Lisp, Snobol, APL).</p>
+            <p><img src="img/screenshots/ishot-21.png" width="500"></p>
+          </section>
+          <section id="zkouska">
+            <header class="page-header">
+              <h1>Zkouška</h1>
+            </header>
+            <dl>
+              <dt>Teorie: Frázová syntax se používá na definování komentářů.</dt>
+              <dd>NE, frázová syntax popisuje úplnou strukturu programu (tvoří množinu správně vytvořených vět)</dd>
+              <dt>Teorie: Mějme a : A, podle pravidla subsumpce je a i typem všech PODtypů A?</dt>
+              <dd><img src="img/screenshots/ishot-83.png"></dd>
+              <dt>Scheme je logický jazyk.
+                <dd>NE, Scheme je funkcionální, netypovaný jazyk se statickou viditelností a striktní vyhodnocováním.</dd>
+              </dt>
+              <dt>Automatická data jsou ukládána na zásobníku.</dt>
+              <dd>ANO, Automatická data jsou typem transientních dat (exitují jen po dobu výpočtu), které jsou uložena v zásobníku.</dd>
+            </dl>
+            <dl>
+              <dt>Máme funkci g, která je typu g : A x B -> A; a g : A x B -> B. Dále někde v kódu máme výraz g(g(x,y),g(u,z)), co platí?</dt>
+              <dd>Nerozhodnutelné v jakémkoliv kontextu.</dd>
+              <dd>Kontextově nezávislé přetížení...</dd>
+              <dd>Kontextově závislé přetížení a v tomto případě LZE rozhodnout. [řešení]</dd>
+              <dd>Kontextově závisle přetížení a v tomto případě NElze rozhodnout.</dd>
+            </dl>
+            <dl>
+              <dt>
+                Do globalnej premmenej "a" (typu int) je na pociatku vlozena hodnota "n". Dalej mame nasledujucu funkciu/proceduru P:
+                <pre>
+                 P(ref int x, inout int y) {
+                   while (x>0) {
+                     x = x-1;
+                     y = x + y;
+                   }
+                 }
+                </pre>
+                Ta je zavolana nasledovne: P(a,a);  Aka hodnota bude v premmenej "a" po skonecni procedury?
+              </dt>
+              <dd>n</dd>
+              <dd>(n*(n+1))/2 [řešení]</dd>
+              <dd>0</dd>
+              <dd>2^n, nebo tak neco</dd>
+              <dd>jina</dd>
+            </dl>
+            <dl>
+              <dt>
+                UnitT -> TriT, kolko je spojitych funkcii a kolko z nich je maximalnych?
+                UnitT je klasicky 2 prvkovy ("()" a "T"), TriT je typ zadefinovany ako obsahujuci nedefinitko
+                a potom dalsie 3 prvky A,B,C, ktore su v TriT maximalne (t.j. A,B,C su navzajom neporovnatelne, 
+                ale ktorykolvek z nich je vacsi ako T)). Dohromady teda TriT obsahuje 4 prvky.
+              </dt>
+              <dd>...</dd>
+              <dd>7 funkcii, 3 maximalne [řešení]</dd>
+              <dd>...</dd>
+            </dl>
+            <dl>
+              <dt>
+                Příklad v prologu. Máme zadánu pomocnou funkci Add(m, n, p), definovanou (aspoň doufám):
+                <pre>
+                  Add(Zero, n, n).
+                  Add(Succ(m), n, Succ(p)) :- Add(m, n, p).
+                </pre>
+                Definujte funkci Mul(m,n,p), která vrátí yes, pokud je p součinem m a n.
+              </dt>
+              <dd>(Prostě p=m*n).</dd>
+            </dl>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+section#soubeznost
+  header.page-header: h1 Souběžné zpracování
+
+  h4 Multitasking
+  p souběžné zpracování úloh na jednom počítači
+  p úlohy využívají různé prostředky (typicky pomalejší I/O zařízení)
+  p interleaving
+  p víceuživatelský režim
+  p systém správy paměti je přizpůsoben souběžnému zpracování více úloh (stránkování, swapping,…)
+
+  h4 Distribuované zpracování
+  p rozdělení úlohy na nezávislé podúlohy, méně komunikace
+  p výpočetní shluky
+  p globálně distribuované úlohy
+
+  h4 Mobilní výpočty
+  p stěhování výpočtu po síti
+  
+  h4 Víceprocesorové počítače
+  section.row
+    article.span4
+      header: h5 Několikaprocesorové (MIMD)
+      p samostatné procesory
+      p vícejádrové subprocesory sdílející některé prostředky (pamět’ cache)
+    article.span4
+      header: h5 Procesorová pole (SIMD)
+      p využití: napˇr. grafické karty
+    article.span4
+      header: h5 Mnohaprocesorové (PRAM)
+      p systémy pro simulaci masivního paralelismu
+    
+  h4 Vícepočítačové systémy
+  p tzv. shluky (clusters) - skupiny počítačů propojené sítí (obvykle lokální a velmi rychlou)
+  p určené pro distribuované výpočty a pro zvýšení spolehlivosti
+
+  hr.soft
+
+  h3 Interference a nezávislost
+  img(src='img/screenshots/ishot-68.png', width=500)
+  img(src='img/screenshots/ishot-69.png', width=500)
+  img(src='img/screenshots/ishot-70.png', width=500)
+
+  p Od procesů se obvykle očekává, že budou kooperovat, tedy nemohou být nezávislé. Neřízená (živelná) interference je však nepraktická, protože neomezeně interferující procesy je extrémně těžké programovat, ladit a spravovat. (Může však mít smysl na hardwarové úrovni.) Proto je vhodné interferenci omezit na přesně určená místa výpočtu a oblasti sdílené paměti.
+
+
+  h4 Podmíněná kritická sekce
+  img(src='img/screenshots/ishot-71.png', width=500)
+  img(src='img/screenshots/ishot-72.png', width=350)
+
+  h4 Semafory
+  img(src='img/screenshots/ishot-73.png', width=400)
+  img(src='img/screenshots/ishot-74.png', width=200)
+
+  h4 Problémy souběžného zpracování
+  ul 
+    li <strong>Nedeterminismus</strong> – při souběžném zpracování v mnohem větší míře než při sekvenčním; cílem je psát programy globálně (vnějšně) deterministické – chyby vzniklé porušením tohoto pravidla se obtížně detekují, protože běhy výpočtu jsou prakticky neopakovatelné.
+    li Závislost na relativní rychlosti zpracování.
+    li Zablokování – čekání procesů na sebe navzájem.
+    li Zmítání – „živá“ varianta zablokování (procesy tráví čas marnými pokusy na odstranění zablokování).
+    li Strádání – situace, kdy některé procesy „stojí“ (setrvávají ve stejném stavu) a ostatní běží na jejich úkor – je důsledkem tzv. nespravedlivého plánování.
+
+  h4 Zablokování (deadlock)
+  p je stav, kdy množina procesů čeká na přístup k prostředkům a z důvodu vzájemně nekompatibilních požadavků tento přístup nezíská.
+  p „Živá“ varianta deadlocku – livelock (zmítání). Algoritmus plánování přidělování prostředků procesům je spravedlivý, když zaručuje, že každý proces bude čekat na přístup k požadovaným prostředkům nejvýše konečně dlouho.
+  p K zablokování může dojít, právě když platí současně následující podmínky:
+  ul
+    li Vzájemné vyloučení – každý prostředek je přidělen nejvýše jednomu procesu.
+    li „Wait & hold“ – procesy čekající na prostředky si drží jiné dříve přidělené prostředky.
+    li Cyklické čekání – v bipartitním grafu procesů a prostředků s hranami „chce“ a „je přidělen“ je cyklus.
+  
+  h3 Řešení zablokování
+  ul 
+    li Vyhýbání se zablokování – sledováním, zda se výpočet nepřiblížil nebezpečné oblasti. Drahé.
+    li Prevence zrušením podmínky „wait & hold“ – vyžaduje se, aby každý proces požádal naráz o všechny prostředky, které bude potřebovat. Plýtvání prostředky.
+    li Prevencezrušenímpodmínkycyklickéhočekání–naprostředcíchsezavede lineární uspořádání a vyžaduje se, aby byly požadovány jen v tomto pořadí. Elegantní, ale někdy může být omezující.
+    li Detekce a zotavení – rozpoznání, že došlo k deadlocku, a zabití procesu.
+    li Nerˇešení – ignorování deadlocku. Zabití procesů je ponecháno na vlastníkovi či vlastnících. Je-li zablokování v OS, zmrznutí a reboot.
+
+
+
+

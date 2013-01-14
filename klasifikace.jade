@@ -1,0 +1,149 @@
+section#klasifikace
+  header.page-header: h1 Klasifikace
+  
+  h3 Aspekty programovacího jazyka
+  ul
+    li Vztah k výpočtu
+    li Implementace kompilátoru, interpretu
+    li Použitelnost jazyka
+    li Oblast nasazení
+    li Úspěšnost jazyka
+  
+  h3 Klasifikace programovacích paradigmat
+  p.note <strong>Paradigma</strong> = způsob, jak jsou v programovacím jazyku formulována řešení problémů.
+  section.row
+    article.span5
+      h4 Imperativní (klasické)
+      p Program popsán posloupností příkazů a přesného postupu (algoritmus), jak úlohu řešit.
+      p Existence proměnných (a měnění během výpočtu pomocí operace <em>přiřazení</em>)
+      p Podobnost kuchyňskému receptu, návod k montáži nábytku
+      p ALGOL, Baltik, C, Common Lisp, Fortran, JAVA, PHP, Pascal, QBasic, Visual Basic
+      p.note Pro funkce je přípustné, aby v průběhu svého vykonávání modifikovaly své vnější prostředí. Vypočtená návratová hodnota tedy není to jediné, co po zbude po jedné aktivaci funkce. Vyvoláme-li tako- vouto funkci vícekrát po sobě, můžeme dostat různé výsledky.
+      h5 Procedurální
+      p TODO
+      h5 Objektově Orientované
+      p Objekt je definován stavem a chováním. Navzájem si posílají zprávy.
+    article.span5
+      h4 Deklarativní
+      p Řešení ve formě výčtu vlastností, které by mělo splňovat. Posloupnost operací, které vedou k nalezení výsledku, není uvedena explicitně v programu.
+    
+      h5 Funkcionální
+      p Výpočet = vyhodnocení matematických (definičních) formulí, zjednodušování až k výsledku – nerozložitelné normální formě.
+      p Vycházejí z teorie funkcí - lambda-kalkulu.
+      p Funkce nemají žádné vedlejší účinky, tudíž ani nemění stav programu. (neexistují proměnné)
+      p Haskell, LISP, Scheme, FP, Miranda
+      p Používáno pro AI, počítačovou grafiku, výuku a výzkum.
+      p.note Klasická funkce, typická pro funkcionální programování, je co do cho- vání obdobou funkce matematické. Je-li aktivována, spočte ze seznamu sku- tečných parametrů a dalších proměnných a konstant prostředí výslednou hodnotu a tu vrátí volající funkci. Pro matematickou funkci není přípustné modifikovat jakékoli hodnoty vně funkce. Takovouto funkci můžeme volat libovolně-krát po sobě a dostaneme vždy stejný výsledek.
+    
+      h5 Logické
+      p Výpočet = formule predikátového počtu.
+      p Použití matematické logiky jako prostředku k programování.
+      p Prolog
+    
+      h5 Constraint logic programming
+      p TODO
+
+  hr
+
+  h3 Klasifikace podle typu překladače
+  p.note <strong>Překladač</strong> speciální program s účelem transformovat program z jednoho jazyka do druhého.
+  .row
+    .span5
+      h5 Kompilované
+      p překladače, které přeloží celý kód ze zdrojové formy do jazyku stroje najednou. Překlad celého kódu tedy předchází jeho spuštění.
+    .span5
+      h5 Interpretované
+      p překladače, obcházející přímý překlad do jazyka stroje. Zdrojový program je těmito překladači postupně interpretován a cílový program jako celek nevzniká. Překlad tak probíhá vlastně souběžně s během programu. Výhodou tohoto přístupu je, že kód je možno za běhu programu modifikovat. Na druhé straně jsou tyto překladače po- malejší, náročnější na paměť a program není schopen fungovat bez přítomnosti překladače.
+    
+
+  hr
+  
+  h3 Klasifikace podle determinismu
+  .row
+    .span5
+      h5 Deterministické
+      p Na stejný vstup (resp. na stejné výchozí podmínky) reaguje vždy stejně (tedy předvídatelně) a v každém jeho kroku je vždy jednoznačně definován i krok následující.
+    .span5
+      h5 Nedeterministické (= stochastický)
+      p V některých krocích může volit z několika možností dalších kroků. Nedeterministický algoritmus při stejném vstupu může dávat rozdílné výsledky.
+
+  hr
+
+  h3 Klasifikace podle běhu
+  .row
+    .span5
+      h5 Sekvenční
+      p Série za sebou následujících instrukcí. Tyto instrukce jsou prováděny pomocí CPU jednoho počítače.
+    .span5
+      h5 Paralelní
+      p Úlohy mohou běžet současně.
+      p Erlang, Scala, Go, Clojure
+
+  hr  
+
+  h3 Klasifikace podle struktury programu
+  .row
+    .span5
+      h5 Amorfní
+      p TODO
+    .span5
+      h5 Blokové
+      p TODO
+    .span5
+      h5 Modulární
+      p TODO
+    .span5
+      h5 Objektové
+      p TODO
+  
+  hr 
+  
+  h3 Klasifikace podle typového systému
+  .row
+    .span5
+      h5 Netypované
+      p TODO
+    .span5
+      h5 Typované
+      p TODO
+    .span5
+      h5 Statické odvození
+      p TODO
+    .span5
+      h5 Dynamické odvození
+      p TODO
+    .span5
+      h5 Monomorfní
+      p TODO
+    .span5
+      h5 Polymorfní
+      p TODO
+    
+  hr   
+  
+  h3 Klasifikace podle oblasti nasazení
+  .row
+    .span3
+      h5 Číselné výpočty
+      p TODO
+    .span3
+      h5 Zpracování textů
+      p TODO
+    .span3
+      h5 Systémové programování
+      p TODO
+    .span3
+      h5 Databáze
+      p TODO
+    .span3
+      h5 Simulace
+      p TODO
+    .span3
+      h5 Umělá inteligence
+      p TODO
+    .span3
+      h5 Grafické rozhraní
+      p TODO
+    .span3
+      h5 Web
+      p TODO

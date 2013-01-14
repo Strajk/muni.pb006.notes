@@ -1,0 +1,42 @@
+section#semantika
+  header.page-header: h1 Sémantika
+  
+  p Význam, vztah mezi programem a výpočetním modelem. Přiřazuje významy programům nebo jejich částem.
+  p Logický význam jednotlivých výrazů jazyka. Napr u datumu XX/XX/XX urcuje ktera cast co znamena - DD/MM/YY.
+
+  h3 Zadávání sémantiky
+  ul
+    li <strong>Neformálně</strong> – popisem v přirozeném jazyce. To může být nepřesné, často je popis neúplný, nejednoznačný.
+    li <strong>Prohlášením jedné implementace kompilátoru za standard</strong> - sice jednoznačné, ale případné chyby v kompilátoru se tak stávají součástí definice jazyka.
+    li <strong>Formálně</strong>, pomocí matematického zápisu.
+  
+  h2 Rozdělení formálních sémantik
+
+  h3 <span class="badge badge-inverse">A</span> Denotační sémantika
+  p definovaná na programech a jejich komponentách explicitně (jako množina funkcí přiřazujících částem programů význam).
+  p: img(src='img/screenshots/denotacni.png', width=500)
+  p: img(src='img/screenshots/denotacni prirazeni.png', width=500)
+
+  h3 <span class="badge badge-inverse">B</span> Axiomatická sémantika
+  p dána jako množina tvrzení (tzv. teorie) o nějakém systému, v němž probíhá výpočet. Používá se zejména u imperativních jazyků, protože tvrzení se vyjadřují o stavech.
+  p: img(src='img/screenshots/axiomaticka.png', width=500)
+
+  h3 <span class="badge badge-inverse">C</span> Operační sémantika
+  p se zavádí množinou pravidel popisujících výpočet abstraktního počítače. Výsledek tohoto výpočtu je významem programu.
+  p Rozlišujeme strukturní (sos) a přirozenou (bos) operační sémantiku.
+  p: img(src='img/screenshots/strukturni operacni.png', width=500)
+  p: img(src='img/screenshots/prirozena operacni.png', width=500)
+
+  hr
+  
+  h2 Determinismus sémantiky
+  .row
+    .span5
+      h4 <span class="badge badge-inverse">A</span> Nedeterministická sémantika
+      p: img(src='img/screenshots/nedeter semantika.png')
+      p: img(src='img/screenshots/nedeter semantika 2.png')
+
+    .span5
+      h4 <span class="badge badge-inverse">B</span> Deterministická sémantika
+      p: img(src='img/screenshots/deter semantika.png')
+      p: img(src='img/screenshots/deter semantika 2.png')

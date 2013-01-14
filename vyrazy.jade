@@ -1,0 +1,171 @@
+section#vyrazy
+  header.page-header: h1 Výrazy
+  
+  h4 Funkce
+  p Základní způsob strukturace programu.
+  p Některé jazyky se k funkcním chovají jako ke všem ostatním výrazům – funkce jako parametr jiné funkce, funkci vrátit jako výsledek funkce, funkce konstruující funkce = funkce jsou hodnotami vysokého řádu.
+
+
+  p: img(src='img/screenshots/vyraz.png', width=500)
+  p: img(src='img/screenshots/vyraz 2.png', width=500)
+
+  h3 Funkcionální a procedurální abstrakce
+  p: img(src='img/screenshots/abstrakce.png', width=500)
+  
+  h4 Funkcionální abstrakce
+  p Se provádí nad výrazem tím, že některé jeho (volné) proměnné se prohlásí za parametry výsledné funkce. Počet těchto parametrů určuje tzv. aritu.
+  p Umožňuje-li jazyk pracovat s funkcemi vyšších řádů, lze všechny funkce (procedury) převést na unární.
+
+  h4 Procedurální abstrakce
+  p: img(src='img/screenshots/proceduralni abstrakce.png', width=500)
+
+  h3 Proměnné
+  p Rozdílný význam v různých paradigmatech:
+
+  h4 Funkcionální, logické
+  p čisté proměnné, proměnné v matematickém smyslu. Proměnná označuje hodnotu (třebaže předem neurčenou). Slouží také k označení parametrů funkcí resp. relací.
+  p: img(src='img/screenshots/promene funkc.png', width=400)
+
+  h4 Imperativní
+  p tzv. přepisovatelné proměnné.
+  p Proměnná označuje pamět’ové místo. Teprve toto pamět’ové místo slouží jako (přechodné) úložiště hodnoty. Hodnota uložená v pamět’ovém místě se může měnit. Tím se mění stav výpočtu. Vevětšiněimperativníchjazyků(Pascal,C,Java,...)sevšakjménemproměnné označuje i hodnota uložená v odpovídajícím pamět’ovém místě (automatické dereferencování).
+  p: img(src='img/screenshots/promene imperativni.png', width=500)
+  p: img(src='img/screenshots/promene imperativni 2.png', width=500)
+  p: img(src='img/screenshots/promene imperativni 3.png', width=350)
+  p: img(src='img/screenshots/promene imperativni 4.png', width=250)
+
+  h3 Příkazy
+  p: img(src='img/screenshots/prikazy.png', width=500)
+  p: img(src='img/screenshots/prikazy bez.png', width=500)
+  p: img(src='img/screenshots/prikazy bez 2.png', width=500)
+  p: img(src='img/screenshots/prikazy bez 3.png', width=500)
+  p: img(src='img/screenshots/prikazy bez 4.png', width=500)
+  p: img(src='img/screenshots/ishot-1.png', width=500)
+  p: img(src='img/screenshots/ishot-2.png', width=500)
+  p: img(src='img/screenshots/ishot-3.png', width=500)
+
+
+
+  h3 Řadicí příkazy
+
+  h4 Skoky
+  p Explicitní přenesení řízení výpočtu do jiné části programu. Obvyklé ve starších jazycích a jazycích nižší úrovně. Většina jazyků klade na použití skoků omezení (například je možný jen skok do stejného nebo nadřazeného bloku).
+  p Přílišné používání skoků vede k nečitelnému kódu a těžko odhalitelným chybám.
+  p Například <code>goto</code> v C
+
+  h4 Úniky
+  p Ukončují provádění složeného příkazu, který únikový příkaz obsahuje.
+  ul
+    li nejvnitřnější
+    li n-tý nejvnitřnější <code>exit n</code>
+    li nejvnitřnější určitého druhu (cykly, case)
+      ul
+        li C: <code>continue, break</code>
+        li Prolog: <code>!</code>
+    li nejvnitřnější funkcionální či procedurální abstrakce, C: <code>return</code>
+    li celý program
+      ul
+        li <code>halt</code>
+        li Fortran: <code>stop</code>
+        li sh: <code>exit</code>
+      
+  h4 Výjimky
+  p Mohou být ošetřeny procedurou pro zpracování výjimky (tzv. handler). Výjimek může být více,různýchtypů,aprokaždoumůžebýtdefinovánojinézpracování;různéčásti programu mohou definovat různá zpracování stejné výjimky.
+  p Není-li výjimka zpracována (ošetřena), je šířena (propagována) do příkazu nadřazeného. Některé výjimky jsou zabudované a vyvolávané zabudovanými operacemi, jiné lze
+  p uživatelsky definovat a vyvolat zvláštním příkazem (ML: raise, Java: throw).
+  p Oblast zpracování (scope) výjimky je vymezena programovým blokem nebo zvláštní
+  p syntaxí (try. . . end).
+
+
+  h3 Volání funkcí (= předávání parametrů)
+  article.note
+    h5 Předávání parametrů
+    p proces navázaní skutečných parametrů na formální parametry funkce.
+  
+    h5 volání funkce (procedury)
+    p aplikace funkce (procedury) na argumenty
+
+  article.note
+    p Přiřazování hodnot na místa v paměti
+    p <strong>L-value</strong> - místo v paměti, do kterého chceme zapisovat. 
+    p <strong>R-value</strong> - hodnota, která je v paměti uložena.
+
+  h5 Definice funkce
+  p: img(src='img/screenshots/ishot-5.png', width=500)
+  h5 Aplikace (volání) funkce
+  p: img(src='img/screenshots/ishot-6.png', width=350)
+
+  h3 Způsoby předávání parametrů
+  section.row
+    article.span5
+       header: h4 <span class="label">1.</span> Volání hodnotou (Call by value)
+       p striktní vyhodnocení
+       p C, Lisp
+       p Postupně jsou vyhodnoceny všechny aktuální parametry. Výsledné hodnoty jsou přiřazeny dočasným lokálním proměnným, odpovídajícím formálním parametrům funkce. S těmito proměnnými se pracuje jako s libovolnými jinými lokálními proměnými. Po vykonání funkce dočasné proměnné zaniknou. Hodnoty původních vstupních výrazů se nezmění.
+       p: img(src='img/screenshots/ishot-7.png')
+     
+    article.span5
+      header: h4 <span class="label">2.</span> Volání odkazem (Call by reference)
+      p PL1, C++
+      p Podobné volání hodnotou, ale skutečné parametry funkcí a procedur smějí být jen (adresovatelná) pamět’ová místa (Ref T) a neprovádí se jejich implicitní dereferencování.
+      p Formální parametry jsou nepřepisovatelné proměnné typu „odkaz na hodnotu“ (Ref T) – např. v Pascalu.
+      p Při simulaci pomocí volání hodnotou (např. v C) mohou být formální parametry přepisovatelné proměnné uchovávající přepisovatelné proměnné (Ref (Ref T)) – dereferencování je pak dvojnásobné.
+      p Nejprve se vyhodnotí aktuální parametry. Předpokládá se přitom, že všechny aktuální parametry mají L-value. Pokud by některý skutečný parametr neměl L-value, je možné jeho R-value přenést do dočasné proměnné a vzít L-value této proměnné. Mnoho jazyků však v této situaci jednoduše vyhlásí chybu. Do funkce pak pošleme adresy (tedy L-values) aktuálních parametrů.
+      p V jazyku je potřeba mít zabudované systémové funkce na získání adresy k proměnné <code>ref(x)</code> a funkci, která k dané adrese vrátí její obsah <code>deref(x)</code>
+      p Manipulace probíhá přímo s obsahy paměťových buněk na zadaných adresách. Funkce může mít vedlejší efekt na své parametry.
+      p: img(src='img/screenshots/ishot-12.png')
+      p: img(src='img/screenshots/ishot-13.png')
+
+    article.span5
+      header: h4 <span class="label">3.</span> Volání hodnotou-výsledkem. (Call by value-result)
+      p Fortran, SR
+      p Nejprve se u všech skutečných parametrů zjistí L-value i R-value. R-value jsou předány do funkce stejně jako u volání hodnotou. L-value všech parametrů jsou uschovány do tabulky. Po vykonání těla funkce, dříve než jsou dočasné proměnné odstraněny ze zásobníku, jsou hod- noty dočasných proměnných nakopírovány zpět do L-value aktuálních parametrů.
+      p Tento způsob předávání parametrů dává v mnoha případech podobné výsledky, jako předávání parametru odkazem.
+      p <strong>co-rutina</strong> - připouštíme paralelní běh volající a volané funkce ve stejné virtuální paměti.
+      p: img(src='img/screenshots/ishot-15.png')
+    
+    article.span5
+      header: h4 <span class="label">4.</span> Volání jménem (Call by name)
+      p Algol68
+      p normální vyhodnocení
+      p Aktuální parametry se považují za jména a jsou opakovaně vyhodnocovány kdykoli, kdy jsou uvedeny. Tento způsob předávání parametrů je dosti komplikovaný, přináší zvláštní vedlejší efekty a v moderních programovacích jazycích se běžně nepoužívá. Předávání parametru jménem je však co do funkčnosti identické s používáním makra.
+      p: img(src='img/screenshots/ishot-8.png')
+      p: img(src='img/screenshots/ishot-9.png')
+      p: img(src='img/screenshots/ishot-10.png')
+    
+    article.span5
+      header: h4 <span class="label">5.</span> Smíšené volání
+      h5 Výsledkem
+      p: img(src='img/screenshots/ishot-14.png')
+      p: img(src='img/screenshots/ishot-16.png')
+      p: img(src='img/screenshots/ishot-17.png')
+
+    article.span5
+      header: h4 <span class="label">6.</span> Volání dle potřeby
+      p líné vyhodnocení
+      p: img(src='img/screenshots/ishot-11.png')
+    
+    
+
+  h2 Rozsah platnosti proměnných
+  p jak jazyk definuje termín vně modulu, co je vlastně vnějšek modulu. K tomuto problému existují v zásadě dva přístupy:
+
+  div.row
+    article.span5
+      h4 Statický (lexikální) rozsah proměnných - statický spoj (static link)
+      p Vnějšek modulu je tak určen strukturou programu, ještě dříve než je program spuštěn na počítači.
+      p ukazatel na aktivační záznam nejbližšího lexikálně nadřazeného bloku.
+    article.span5
+      h4 Dynamický rozsah proměnných - dynamický spoj (dynamic link)
+      p nějšek je tvořen těmi aktivacemi funkcí, ze kterých byl aktivován daný modul. Vnějšek modulu tak není možné určit ze zdrojového programu, je dán až průběhem výpočtu.
+      p ukazatel na předchozí aktivační záznam uložený v zásobníku, tedy ukazatel na aktivační záznam volající funkce.
+    
+  p: img(src='img/screenshots/ishot-81.png')
+
+  h5 Zjišťování platnosti proměnné
+  ol
+    li Je proměnná lokální danému modulu?
+    li Hledání modulu ve kterém je proměnná nadeklarována (prohledávání zásobníku za pomocí spojů)
+  p.note Zásobník programu obsahuje návratovou adresu, lokální proměnné, skutečné parametry a <strong>dynamický a statický spoj</strong>
+
+  

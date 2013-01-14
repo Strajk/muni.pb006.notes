@@ -1,0 +1,61 @@
+doctype 5
+html
+  head
+    meta(charset='utf-8')
+    title Principy program
+    link(rel='stylesheet', href='css/bootstrap.css')
+    link(rel='stylesheet', href='css/main.css')
+    script(src='js/vendor/jquery-1.8.3.min.js')
+    script(src='js/vendor/bootstrap.js')
+    script
+      $(function() {
+        // $('#sidebar').scrollspy();
+      });
+  body
+    //- Header
+    div.jumbotron.masthead
+      div.container
+        h1 PB006
+        p Ultimate guide to PB006
+        ul.masthead-links
+          li: a(href="http://www.fi.muni.cz/~libor/vyuka/PB006/") Oficiální stránky předmětu
+
+    //- Page
+    div.container
+      div.row
+        //- Fixed navigation
+        div.span2
+          ul#sidebar.nav.nav-list("data-spy"="affix","data-offset-top"="290")
+            li: a(href="#about") O projektu
+            li: a(href="#uvod") Úvod
+            li: a(href="#jazyky") Jazyky 
+            li: a(href="#historie") Historie 
+            li: a(href="#klasifikace") Klasifikace 
+            li: a(href="#syntax") Syntax 
+            li: a(href="#semantika") Sémantika
+            li: a(href="#typy") Typy 
+            li: a(href="#vyrazy") Výrazy
+            li: a(href="#pamet") Pamět
+            li: a(href="#logicke") Logické
+            li: a(href="#funkcionalni") Funkcionální
+            li: a(href="#soubeznost") Souběžnost
+            li: a(href="#viditelnost") Viditelnost 
+            li: a(href="#zkouska") Zkouška
+        //- Content
+        div.span10
+          include about
+          include uvod
+          include jazyky
+          include historie
+          include klasifikace
+          include syntax
+          include semantika
+          include typy
+          include vyrazy
+          include pamet
+          include logicke
+          include funkcionalni
+          include soubeznost
+          include viditelnost
+          include zkouska
+        

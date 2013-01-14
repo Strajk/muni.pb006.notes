@@ -1,0 +1,136 @@
+section#syntax
+  header.page-header: h1 Syntax
+   
+  p Struktura a forma jazyka (programu). Definuje klíčová slova, identifikátory, čísla a další programové entity a určuje způsob, jak je lze kombinovat. Popsána formální gramatikou (lexikální, bezkontextová, kontext. omezení). Bývá obvykle popsána ve více úrovních.
+
+  section#syntax_popis
+    header: h2 Metody popisu syntaxe
+  
+    section#syntax_popis_bnf
+      header: h3 <span class="badge badge-inverse">A</span> Backus-Naurova forma (BNF)
+      p Formální popis syntaxe
+      article.note
+        h4 Zopakování gramatik <small>Více v IB102 Automaty a gramatiky</small>
+        p <strong>Terminální symboly</strong> - vyskytují se v popisovaných výrazech. <code>. 0 1 2 3 4 5 6 7 8 9</code>
+        p <strong>Neterminální symboly</strong> - označují proměnné/abstrakce/symbolické konstrukce, které se v popisovaných výrazech nebudou vyskytovat. Slouží pouze k odvozování správných řetězců terminálních symbolů<code>⟨real-number⟩ ⟨digit-sequence⟩ ⟨digit⟩</code>
+  
+      article.example
+        h5 Reálná čísla
+        p: img(src='img/screenshots/ishot-76.png')
+        p
+          | 1) Číslice je 0 nebo 1 nebo 2 nebo ... nebo 9. Nic jiného není číslice.<br />
+          | 2) Sekvence čísel je číslice nebo číslice následovaná sekvencí číslic. Nic jiného není sekvence čísel.<br />
+          | 3) Reálné číslo je sekvence číslic následovaná tečkou a další sekvencí číslic. Nic jiného není reálné číslo.<br />
+  
+      article.example
+        h5 Syntax úplného jména souboru v operačním systému MS-DOS
+        p: img(src='img/screenshots/ishot-77.png')
+
+    section#syntax_popis_ebnf
+      header: h3 <span class="badge badge-inverse">B</span> Rozšířená Backus-Naurova forma (<abbr title="Extended Backus-Naur Form">EBNF)
+    
+      h5 Rozdíly oproti BNF
+      ul
+        li Odstraňuje používání špičatých závorek pro neterminály. Zavádí při- tom konvenci, že neterminály jsou psány vždy velkými písmeny, termi- nály vždy malými písmeny a v tisku tučně, speciální terminální znaky jako + − | atd., jsou uzavírány do apostrofů, tj. píšeme ‘+’ ‘−’ ‘|’.
+        li Umožňuje používat kulatých závorek pro shromažďování výrazů.
+        li Zavádí symbol složených závorek {expr} pro žádné, jedno nebo více opakování výrazu expr.
+        li Zavádí symbol hranatých závorek [expr] pro nepovinné konstrukce.
+  
+      p Jakýkoli výraz popsaný EBNF lze převést na ekvivalentní výraz v BNF
+    
+      article.example
+        h5 Reálná čísla
+        p: img(src='img/screenshots/ishot-78.png')
+
+    section#syntax_popis_diagramy
+      header: h3 <span class="badge badge-inverse">C</span> Syntaktické diagramy
+      h5 Postup
+      ul
+        li Pro každý neterminál existuje jeden diagram, název neterminálu je uveden v levé části diagramu.
+        li Každé pravidlo BNF s daným neterminálem na levé straně generuje jednu cestu v diagramu
+        li Terminály jsou psány v kroužcích, neterminály ve čtverečcích
+        li Možnost opakování je v diagramu znázorněna smyčkou
+    
+      div.row
+        p.span5: img.example(src='img/screenshots/ishot-79.png')
+        p.span5: img.example(src='img/screenshots/ishot-80.png')
+
+  hr
+
+  h2 Klasifikace syntaxe podle účelu
+  .row
+    .span5
+      h3 Konkrétní
+      p Definuje vlastní syntax. 
+      p Obsahuje dostatečně mnoho terminálů, které zjednodušují a zjednoznačňují syntaktickou analýzu i čitelnost programu
+      p
+        img(src='img/screenshots/konkretni syntax.png', width=400)
+        img(src='img/screenshots/konkretni syntax 1.png', width=400)
+        img(src='img/screenshots/konkretni syntax diagram.png', width=400)
+    .span5
+      h3 Abstraktní
+      p popisuje strukturu
+      p je nezávislá na konkrétní reprezentaci
+      p obsahuje především neterminály
+      p terminály slouží pouze jako diskriminátory odvozovacích pravidel
+      p vhodná pro formální práci s jazykovými termy, např. pro definici denotační sémantiky
+      p
+        img(src='img/screenshots/abstraktni syntax.png')
+        img(src='img/screenshots/abstraktni syntax 2.png')
+        img(src='img/screenshots/abstraktni syntax 3.png')
+        img(src='img/screenshots/abstraktni syntax 4.png')
+        img(src='img/screenshots/abstraktni syntax 5.png')
+        img(src='img/screenshots/abstraktni syntax 6.png')
+      
+  hr.soft
+  h2 Klasifikace podle toho co popisuje
+  p.note Lexikální atom = celek zpracování jazyku, vznikne tokenizací na atomické části
+  .row
+    .span5
+      h3 Lexikální syntax (mikrosyntax)
+      p Popisuje lexikální strukturu jazyka. Slouží k vymezení lexika – množiny lexikálních atomů neboli lexémů. Bývá popsána <em>regulární gramatikou</em> nebo <em>jednoduchou bezkontextovou gramatikou</em>. Terminály gramatiky jsou znaky. Vlastní program je pak definován jen jako posloupnost lexikálních atomů.
+      p <strong>Přirovnání</strong> - morfologii v přirozeném jazyce – tvoří jeho slovník.
+      p Lexikální syntax nejen vymezuje lexémy, ale i způsob, jak je rozpoznat ve vstupním proudu znaků. Ve většině jazyků musí být některé dvojice sousedních lexémů odděleny tzv. bílým místem. Proto je další součástí lexikální syntaxe i syntax tzv. bílého místa a komentářů .
+      p Důsledek: V jazycích se zanořovanými komentáři nestačí pro popis mikrosyntaxe regulární gramatika.
+
+      h4 Přístupy k bílým znakům coby oddělovačům lexémů
+      ul
+        li Bílé místo nehraje žádnou roli [Fortran, Cobol]. Neostrá hranice mezi lexikální a syntaktickou analýzou, víceméně ad hoc.
+        li Hranice mezi lexémy je často zřejmá z jejich lexikální syntaxe; pokud ne, jsou lexémy jsou odděleny aspoň jedním bílým znakem nebo komentářem [většina jazyků].
+        li Jazyky s liberální lexikální syntaxí jmen tedy častěji vyžadují (aspoň jednu) mezeru mezi lexémy [Agda].
+        li Šířka bílého místa hraje roli na začátcích řádků, je tedy významná velikost odsazení [Iswim, Python, Haskell].
+        li Šířka bílého místa kdekoliv v textu je významná [„dvourozmeřné“ jazyky – Epigram].
+
+      h4 Lexikální syntax komentářů
+      ul
+        li Komentáře v závorkách
+        li Komentáře řádkové
+        li Komentáře autodokumentační - za hlavičkami funkcí tříd, metod,... (Scheme, Smalltalk, Java, eLisp...)
+  
+    .span5
+      h3 Frázová syntax (makrosyntax)
+      p Popisuje úplnou strukturu programu. Bývá popsána bezkontextovou gramatikou. Terminály gramatiky jsou lexikální atomy.
+      p <strong>Přirovnání</strong> - větné skladbě přirozeného jazyka – tvoří množinu správně vytvořených vět.
+    
+      h4 Kontextová omezení
+      p Podmínky vymezující podmnožinu jazyka generovaného gramatikou frázové syntaxe. p Makrosyntax lze přirovnat k větné skladbě přirozeného jazyka – tvoří množinu správně vytvořených vět.
+      p Kontextovým omezením se také ˇríká statická sémantika.
+      p Makrosyntax lze přirovnat k větné skladbě přirozeného jazyka – tvoří množinu správně vytvořených vět.
+    
+      h4 Makrojazyk
+      p
+        img(src='img/screenshots/makrojazyk.png')
+      .row
+        .span5
+           h5 cpp
+           p Makrosyntax lze přirovnat k větné skladbě přirozeného jazyka – tvoří množinu správně vytvořených vět.
+        .span5
+           h5 Scheme
+           p v programech lze použít makrojazyk, který má tutéž syntax a stejné funkce jako Scheme
+        .span5
+           h5 Template Haskell
+           p Makrosyntax lze přirovnat k větné skladbě přirozeného jazyka – tvoří množinu správně vytvořených vět.
+        .span5
+           h5 M4
+           p univerzální makrojazyk, použitelný bud’ samostatně, anebo ve spojení s nějakým programovacím jazykem jako jeho pˇredzpracující makrojazyk
+        
