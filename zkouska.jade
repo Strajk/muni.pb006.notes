@@ -1,60 +1,103 @@
 section#zkouska
   header.page-header: h1 Zkouška
   
-  dl
-    dt Teorie: Frázová syntax se používá na definování komentářů.
-    dd NE, frázová syntax popisuje úplnou strukturu programu (tvoří množinu správně vytvořených vět)
-    
-    dt Teorie: Mějme a : A, podle pravidla subsumpce je a i typem všech PODtypů A?
-    dd: img(src='img/screenshots/ishot-83.png')
+  div
+    blockquote Správná / nesprávná tvrzení
+    ul 
+      li Frázová syntax se používá na definování komentářů. <em>NE, frázová syntax popisuje úplnou strukturu programu (tvoří množinu správně vytvořených vět)</em>
+      li Mějme a : A, podle pravidla subsumpce je a i typem všech PODtypů A?
+      li Scheme je logický jazyk. <em>NE, Scheme je funkcionální, netypovaný jazyk se statickou viditelností a striktní vyhodnocováním.</em>
+      li Automatická data jsou ukládána na zásobníku. <em>ANO, Automatická data jsou typem transientních dat (exitují jen po dobu výpočtu), které jsou uložena v zásobníku.</em>
+      li Godel obsahuje parametericke polymorfne typy
+      li Smalltalk vychadza z Javy
+      li Lisp je funkcionalny a je pouzivany na vedecke vypocty
 
-    dt Scheme je logický jazyk.
-      dd NE, Scheme je funkcionální, netypovaný jazyk se statickou viditelností a striktní vyhodnocováním.
+  hr 
+  
+  div
+    blockquote Máme funkci g, která je typu g : A x B -> A; a g : A x B -> B. Dále někde v kódu máme výraz g(g(x,y),g(u,z)), co platí?
+    ul
+      li Nerozhodnutelné v jakémkoliv kontextu.
+      li Kontextově nezávislé přetížení...
+      li Kontextově závislé přetížení a v tomto případě LZE rozhodnout. [řešení]
+      li Kontextově závisle přetížení a v tomto případě NElze rozhodnout.
     
-    dt Automatická data jsou ukládána na zásobníku.
-    dd ANO, Automatická data jsou typem transientních dat (exitují jen po dobu výpočtu), které jsou uložena v zásobníku.
+  hr
+  
+  div
+    blockquote.
+      Máme globální proměnnou <code>a</code> anásledující proceduru:
+      <pre>
+      P(ref int x, inout int y) {
+        while (x>0) {
+          x = x-1;
+          y = x + y;
+        }
+      }</pre>
+      <strong>Další varianta</strong>
+      <pre>
+      P(in x:int, ref y:int, name z:int) {
+        while(x > 0) {
+          y = z;
+          x = x - 1;
+        }
+      }</pre>
+      Ta je zavolana nasledovne: <code>P(a,a);</code> Aka hodnota bude v premmenej "<code>a</code>" po skonecni procedury?
     
-  dl
-    dt Máme funkci g, která je typu g : A x B -> A; a g : A x B -> B. Dále někde v kódu máme výraz g(g(x,y),g(u,z)), co platí?
-    dd Nerozhodnutelné v jakémkoliv kontextu.
-    dd Kontextově nezávislé přetížení...
-    dd Kontextově závislé přetížení a v tomto případě LZE rozhodnout. [řešení]
-    dd Kontextově závisle přetížení a v tomto případě NElze rozhodnout.
+    ul 
+      li n
+      li (n*(n+1))/2
+      li 0
+      li 2^n, nebo tak neco
+      li jina
     
-  dl
-    dt
-      | Do globalnej premmenej "a" (typu int) je na pociatku vlozena hodnota "n". Dalej mame nasledujucu funkciu/proceduru P:
-      | <pre>
-      |  P(ref int x, inout int y) {
-      |    while (x>0) {
-      |      x = x-1;
-      |      y = x + y;
-      |    }
-      |  }
-      | </pre>
-      | Ta je zavolana nasledovne: P(a,a);  Aka hodnota bude v premmenej "a" po skonecni procedury?
-    dd n
-    dd (n*(n+1))/2 [řešení]
-    dd 0
-    dd 2^n, nebo tak neco
-    dd jina
-    
-  dl
-    dt.
+  hr
+  
+  div
+    blockquote.
       UnitT -> TriT, kolko je spojitych funkcii a kolko z nich je maximalnych?
       UnitT je klasicky 2 prvkovy ("()" a "T"), TriT je typ zadefinovany ako obsahujuci nedefinitko
       a potom dalsie 3 prvky A,B,C, ktore su v TriT maximalne (t.j. A,B,C su navzajom neporovnatelne, 
       ale ktorykolvek z nich je vacsi ako T)). Dohromady teda TriT obsahuje 4 prvky.
-    dd ...
-    dd 7 funkcii, 3 maximalne [řešení]
-    dd ...
+    ul
+      li ...
+      li 7 funkcii, 3 maximalne [řešení]
+      li ...
+      
+  div
+    blockquote.
+      Mame typ bool, ktory okrem zakladnych boolovskych hodnot true a false obsahuje aj nulovu hodnotu. Napiste pocet prvkov v mnozine boolT x boolT a urcite, kolko z nich je maximalnych.
+    ul
+      li 4 prvky 2 max
+      li 9 prvkov 1 max
+      li 6 prvkov 2 max
+      li 9 prvkov 4 max
+      li 10 prvkov 4 max
     
-  dl
-    dt.
+    
+  hr
+  
+  div
+    blockquote.
+      Mame unarny znak 'E','a' a 'b'. Tieto slova patria do jazyka L, ktory je generovany mnozinou {a,b}. Zapis E znamena prazdne slovo, zapis A(E) znamena jednoznakove slovo 'a', zapis B(E) je jednoznakove slovo 'b'. Zapisy A(A(E)),A(B(E)), B(A(E)) a B(B(E)) su postupne slova aa,ab,ba,bb.
+      Vytvorte unarnu fci Alternate, ktora akceptuje len slova, kde sa strieda 'a' a 'b'. T.j. akceptuje slova, kde za sebou nie su 2 rovanke znaky jazyka L. Pre prazdne a jednoznakove slova je funkcia Alternate zadana jednoducho. (pozn. autora: To, ze je zadana jednoducho asi znamena, ze pre E, A(E) a B(E) to proste plati).
+  
+  hr
+  
+  div
+    blockquote.
+      Mame vyraz el := er, ktory funguje tak, ze sa najprv spocita prava strana er, ktorej hodnotu oznacime 'v', potom lava strana el, ktora spocita adresu 'a' a nakoniec sa hodnota 'v' ulozi na adresu 'a'.
+      Hodnota vyrazu el := er, je 'v', preto mozme pocitat aj zlozene vyrazy ako x := y := 0, kde vacsiu prioritu ma vyraz vpravo, co si mozme predstavit ako x := (y := 0), t.j. najprv sa spocita to, co je v zatvorke, potom mimo zatvorky. Vyraz moze mat vedlajsie efekty.
+      Aka hodnota bude pre vyraz M([e1 := e2 := e3])phi?
+
+  hr
+    
+  div
+    blockquote.
       Příklad v prologu. Máme zadánu pomocnou funkci Add(m, n, p), definovanou (aspoň doufám):
       <pre>
         Add(Zero, n, n).
-        Add(Succ(m), n, Succ(p)) :- Add(m, n, p).
-      </pre>
+        Add(Succ(m), n, Succ(p)) :- Add(m, n, p).</pre>  
       Definujte funkci Mul(m,n,p), která vrátí yes, pokud je p součinem m a n.
-    dd (Prostě p=m*n).
+    ul
+      li p=m*n
